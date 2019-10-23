@@ -4,15 +4,19 @@
     <div class="content">
         <div class="block">
             <div class="block-header block-header-default">
-                <h3 class="block-title">Yeni Kullanıcı Ekle</h3>
-                <div class="block-options">
-                    <a href="{{ action('UserController@profileUpdate', Auth::id()) }}" type="submit"
-                       class="btn btn-sm btn-square btn-primary min-width-125 mb-10">
-                        <i class="fa fa-history"></i> Kullanıcı Listesi
-                    </a>
-                </div>
+                <h3 class="block-title">{{ Auth::user()->name.' Düzenleme' }}</h3>
             </div>
             <div class="block-content">
+
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
 
                 <h2 class="content-heading text-black">Kullanıcı Detayları</h2>
                 <form action="{{ action('UserController@profileUpdate', $user) }}" method="post">
@@ -21,7 +25,8 @@
                         <label class="col-md-3 col-form-label text-md-right" for="name">Adı Soyadı :</label>
                         <div class="col-md-7">
                             <input type="text" class="form-control form-control  @error('name') is-invalid @enderror"
-                                   id="name" name="name" value="{{old('name',$user->name)}}" required autocomplete="name" autofocus>
+                                   id="name" name="name" value="{{old('name',$user->name)}}" required
+                                   autocomplete="name" autofocus>
                             @error('name')
                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -33,7 +38,8 @@
                         <label class="col-md-3 col-form-label text-md-right" for="email">Email Adresi :</label>
                         <div class="col-md-7">
                             <input type="text" class="form-control form-control  @error('name') is-invalid @enderror"
-                                   id="email" name="email" value="{{old('email',$user->email)}}" required autocomplete="email">
+                                   id="email" name="email" value="{{old('email',$user->email)}}" required
+                                   autocomplete="email">
                             @error('email')
                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -46,7 +52,7 @@
                         <div class="col-md-7">
                             <input type="password"
                                    class="form-control form-control  @error('name') is-invalid @enderror"
-                                   id="password" name="password"  autocomplete="new-password">
+                                   id="password" name="password" autocomplete="new-password">
                             @error('password')
                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

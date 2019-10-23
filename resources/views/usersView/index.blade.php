@@ -38,11 +38,11 @@
                             </td>
                             <td class="text-center">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip"
+                                    <button type="button" class="btn btn-sm btn-warning" data-toggle="tooltip"
                                             title="Edit">
                                         <i class="fa fa-pencil"></i>
                                     </button>
-                                    <button type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip"
+                                    <button type="button" class="btn btn-sm btn-danger" data-toggle="tooltip"
                                             title="Delete">
                                         <i class="fa fa-times"></i>
                                     </button>

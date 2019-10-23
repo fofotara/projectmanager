@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Auth;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 
@@ -30,11 +31,11 @@ class UserController extends Controller
         return view('usersView.create',compact('rules'));
     }
 
+
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request)
     {
@@ -104,6 +105,9 @@ class UserController extends Controller
         //
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
+     */
     public function profile()
     {
         if (\Auth::user()) {
@@ -115,7 +119,31 @@ class UserController extends Controller
 
     public function profileUpdate(Request $request,$id){
 
-        dd($request->all(), $id);
+      //  dd($request->all(), $id);
 
+        $user = User::where('id',Auth::user()->id)->firstOrFail();
+        $this->validate($request,[
+            'name' => 'required', 'string', 'max:255',
+            'email' => 'required|email|max:255|unique:users,email,'.Auth::user()->id.',id'
+
+
+        ]);
+
+        if($request->filled('password')){
+            $this->validate($request,[
+                'password' => ['required', 'string', 'min:8', 'confirmed'],
+            ]);
+        }
+
+
+        $user->name == $request->name ?: $user->name = $request->name   ;
+        $user->email == $request->email ?: $user->email = $request->email   ;
+        if($request->filled('password')){
+            $user->password = \Hash::make($request->password);
+        }
+        $user->save();
+
+
+         dd($request->all(), $id);
     }
 }

@@ -27,7 +27,14 @@ Route::group(['prefix' => 'dashboard'], function () {
 
 
         Route::get('/profile','UserController@profile');
-        Route::post('/profile/{user}','UserController@profileUpdate');
+        Route::post('/profile/{user}/update','UserController@profileUpdate');
+    });
+    Route::group(['prefix' => 'templates'], function () {
+        Route::get('/{template?}','TemplateController@index');
+        Route::post('/create','TemplateController@TemplateStore');
+        Route::post('updateTemplate','TemplateController@updateTemplate');
+        Route::post('TemplateDetailsStore','TemplateController@TemplateDetailsStore');
+
     });
 });
 

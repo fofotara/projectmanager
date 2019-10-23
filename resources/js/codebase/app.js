@@ -1,11 +1,8 @@
-/*
- *  Document   : app.js
- *  Author     : pixelcave
- *  Description: Main entry point
- *
- */
-
-// Import global dependencies
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
 import './bootstrap';
 
 // Import required modules

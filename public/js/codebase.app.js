@@ -25549,13 +25549,11 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-/*
- *  Document   : app.js
- *  Author     : pixelcave
- *  Description: Main entry point
- *
- */
-// Import global dependencies
+$.ajaxSetup({
+  headers: {
+    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+  }
+});
  // Import required modules
 
 
@@ -25650,12 +25648,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery_scroll_lock__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(jquery_scroll_lock__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var jquery_countto__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! jquery-countto */ "./node_modules/jquery-countto/jquery.countTo.js");
 /* harmony import */ var jquery_countto__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(jquery_countto__WEBPACK_IMPORTED_MODULE_7__);
-/*
- *  Document   : bootstrap.js
- *  Author     : pixelcave
- *  Description: Import global dependencies
- *
- */
 // Import all vital core JS files..
 
 
@@ -27837,6 +27829,17 @@ function () {
 
 /***/ }),
 
+/***/ "./resources/sass/app.scss":
+/*!*********************************!*\
+  !*** ./resources/sass/app.scss ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./resources/sass/codebase/themes/corporate.scss":
 /*!*******************************************************!*\
   !*** ./resources/sass/codebase/themes/corporate.scss ***!
@@ -27904,14 +27907,15 @@ function () {
 /***/ }),
 
 /***/ 0:
-/*!*********************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** multi ./resources/js/codebase/app.js ./resources/sass/main.scss ./resources/sass/codebase/themes/corporate.scss ./resources/sass/codebase/themes/earth.scss ./resources/sass/codebase/themes/elegance.scss ./resources/sass/codebase/themes/flat.scss ./resources/sass/codebase/themes/pulse.scss ***!
-  \*********************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/codebase/app.js ./resources/sass/main.scss ./resources/sass/app.scss ./resources/sass/codebase/themes/corporate.scss ./resources/sass/codebase/themes/earth.scss ./resources/sass/codebase/themes/elegance.scss ./resources/sass/codebase/themes/flat.scss ./resources/sass/codebase/themes/pulse.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! C:\laragon\www\projectmanager\resources\js\codebase\app.js */"./resources/js/codebase/app.js");
 __webpack_require__(/*! C:\laragon\www\projectmanager\resources\sass\main.scss */"./resources/sass/main.scss");
+__webpack_require__(/*! C:\laragon\www\projectmanager\resources\sass\app.scss */"./resources/sass/app.scss");
 __webpack_require__(/*! C:\laragon\www\projectmanager\resources\sass\codebase\themes\corporate.scss */"./resources/sass/codebase/themes/corporate.scss");
 __webpack_require__(/*! C:\laragon\www\projectmanager\resources\sass\codebase\themes\earth.scss */"./resources/sass/codebase/themes/earth.scss");
 __webpack_require__(/*! C:\laragon\www\projectmanager\resources\sass\codebase\themes\elegance.scss */"./resources/sass/codebase/themes/elegance.scss");

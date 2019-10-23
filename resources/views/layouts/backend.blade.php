@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,400i,600,700">
     <link rel="stylesheet" id="css-main" href="{{ mix('/css/codebase.css') }}">
 
+
     <!-- You can include a specific file from public/css/themes/ folder to alter the default color theme of the template. eg: -->
 <!-- <link rel="stylesheet" id="css-theme" href="{{ mix('/css/themes/corporate.css') }}"> -->
 @yield('css_after')
@@ -95,8 +96,7 @@ MAIN CONTENT LAYOUT
                     <a class="img-link mr-5" href="javascript:void(0)">
                         <img class="img-avatar img-avatar32" src="{{ asset('media/avatars/avatar15.jpg') }}" alt="">
                     </a>
-                    <a class="align-middle link-effect text-primary-dark font-w600" href="javascript:void(0)">John
-                        Smith</a>
+                    <a class="align-middle link-effect text-primary-dark font-w600" href="javascript:void(0)">{{ Auth::user()->name }}</a>
                 </div>
                 <!-- END User Info -->
             </div>
@@ -151,8 +151,8 @@ MAIN CONTENT LAYOUT
                     <!-- END Close Sidebar -->
 
                     <!-- Logo -->
-                    <div class="content-header-item">
-                        <a class="link-effect font-w700" href="/">
+                    <div>
+                        <a href="/dashboard">
                             <img src="{{ asset('media/logo.svg') }}" class="img-fluid">
                         </a>
                     </div>
@@ -162,61 +162,40 @@ MAIN CONTENT LAYOUT
             </div>
             <!-- END Side Header -->
 
-            <!-- Side User -->
-            <div class="content-side content-side-full content-side-user px-10 align-parent">
-                <!-- Visible only in mini mode -->
-                <div class="sidebar-mini-visible-b align-v animated fadeIn">
-                    <img class="img-avatar img-avatar32" src="{{ asset('media/avatars/avatar15.jpg') }}" alt="">
-                </div>
-                <!-- END Visible only in mini mode -->
 
-                <!-- Visible only in normal mode -->
-                <div class="sidebar-mini-hidden-b text-center">
-                    <a class="img-link" href="javascript:void(0)">
-                        <img class="img-avatar" src="{{ asset('media/avatars/avatar15.jpg') }}" alt="">
-                    </a>
-                    <ul class="list-inline mt-10">
-                        <li class="list-inline-item">
-                            <a class="link-effect text-dual-primary-dark font-size-xs font-w600 text-uppercase"
-                               href="javascript:void(0)">{{ Auth::user()->name }}</a>
-                        </li>
-                        <li class="list-inline-item">
-                            <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-
-                        </li>
-                        <li class="list-inline-item">
-                            <a class="link-effect text-dual-primary-dark" href="{{ route('logout') }}"
-                               onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-                            >
-                                <i class="si si-logout"></i>
-                            </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
-                        </li>
-                    </ul>
-                </div>
-                <!-- END Visible only in normal mode -->
-            </div>
-            <!-- END Side User -->
 
             <!-- Side Navigation -->
             <div class="content-side content-side-full">
                 <ul class="nav-main">
+                    <li class="nav-main-heading">
+                        <span class="sidebar-mini-visible">VR</span><span class="sidebar-mini-hidden">MENÜ</span>
+                    </li>
                     <li>
                         <a class="{{ request()->is('dashboard') ? ' active' : '' }}" href="/dashboard">
                             <i class="si si-cup"></i><span class="sidebar-mini-hide">Dashboard</span>
                         </a>
                     </li>
+                    <li class="nav-main-heading">
+                        <span class="sidebar-mini-visible">VR</span><span class="sidebar-mini-hidden">AYARLAR</span>
+                    </li>
                     <li>
-                        <a class="{{ request()->is('dashboard/users/*') ? ' active' : '' }}"
+                        <a class="{{ request()->is('dashboard/users') ? 'active' : '' }}"
                            href="{{action('UserController@index')}}">
                             <i class="si si-users"></i><span class="sidebar-mini-hide">Kullanıcılar</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="{{ request()->is('dashboard/templates') ? 'active' : '' }}"
+                           href="{{action('TemplateController@index')}}">
+                            <i class="si si-users"></i><span class="sidebar-mini-hide">Proje Ayarları</span>
                         </a>
                     </li>
                     <li class="nav-main-heading">
                         <span class="sidebar-mini-visible">VR</span><span class="sidebar-mini-hidden">Various</span>
                     </li>
+
+
+
                     <li class="{{ request()->is('examples/*') ? ' open' : '' }}">
                         <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-bulb"></i><span
                                 class="sidebar-mini-hide">Examples</span></a>
@@ -372,7 +351,7 @@ MAIN CONTENT LAYOUT
                     </button>
                     <div class="dropdown-menu dropdown-menu-right min-width-200"
                          aria-labelledby="page-header-user-dropdown">
-                        <h5 class="h6 text-center py-10 mb-5 border-b text-uppercase">User</h5>
+                        <h5 class="h6 text-center py-10 mb-5 border-b text-uppercase">{{ Auth::user()->name }}</h5>
                         <a class="dropdown-item" href="{{action('UserController@profile')}}">
                             <i class="si si-user mr-5"></i> Profil
                         </a>
@@ -533,7 +512,7 @@ MAIN CONTENT LAYOUT
     <!-- END Header -->
 
     <!-- Main Container -->
-    <main id="main-container">
+    <main id="main">
         @yield('content')
     </main>
     <!-- END Main Container -->
