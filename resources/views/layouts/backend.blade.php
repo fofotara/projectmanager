@@ -96,7 +96,8 @@ MAIN CONTENT LAYOUT
                     <a class="img-link mr-5" href="javascript:void(0)">
                         <img class="img-avatar img-avatar32" src="{{ asset('media/avatars/avatar15.jpg') }}" alt="">
                     </a>
-                    <a class="align-middle link-effect text-primary-dark font-w600" href="javascript:void(0)">{{ Auth::user()->name }}</a>
+                    <a class="align-middle link-effect text-primary-dark font-w600"
+                       href="javascript:void(0)">{{ Auth::user()->name }}</a>
                 </div>
                 <!-- END User Info -->
             </div>
@@ -163,7 +164,6 @@ MAIN CONTENT LAYOUT
             <!-- END Side Header -->
 
 
-
             <!-- Side Navigation -->
             <div class="content-side content-side-full">
                 <ul class="nav-main">
@@ -175,25 +175,43 @@ MAIN CONTENT LAYOUT
                             <i class="si si-cup"></i><span class="sidebar-mini-hide">Dashboard</span>
                         </a>
                     </li>
-                    <li class="nav-main-heading">
-                        <span class="sidebar-mini-visible">VR</span><span class="sidebar-mini-hidden">AYARLAR</span>
+
+                    <li  class="{{ request()->is('dashboard/settings/*') ? 'open' : '' }}">
+                        <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-settings"></i><span
+                                class="sidebar-mini-hide">Ayarlar</span></a>
+                        <ul>
+                            <li>
+                                <a class="{{ request()->is('dashboard/settings/users') ? 'active' : '' }}"
+                                   href="{{action('UserController@index')}}">
+                                    Kullanıcılar
+                                </a>
+                            </li>
+                            <li>
+                                <a class="{{ request()->is('dashboard/settings/templates/*') ? 'active' : '' }}"
+                                   href="{{action('TemplateController@index')}}">
+                                 Proje Ayarları
+                                </a>
+                            </li>
+                        </ul>
                     </li>
-                    <li>
-                        <a class="{{ request()->is('dashboard/users') ? 'active' : '' }}"
-                           href="{{action('UserController@index')}}">
-                            <i class="si si-users"></i><span class="sidebar-mini-hide">Kullanıcılar</span>
-                        </a>
+
+                    <li  class="{{ request()->is('dashboard/project/*') ? 'open' : '' }}">
+                        <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-settings"></i><span
+                                class="sidebar-mini-hide">Projeler</span></a>
+                        <ul>
+                            <li>
+                                <a class="{{ request()->is('dashboard/project/') ? 'active' : '' }}"
+                                   href="{{action('ProjectController@index')}}">
+                                    Proje Listesi
+                                </a>
+                            </li>
+
+                        </ul>
                     </li>
-                    <li>
-                        <a class="{{ request()->is('dashboard/templates') ? 'active' : '' }}"
-                           href="{{action('TemplateController@index')}}">
-                            <i class="si si-users"></i><span class="sidebar-mini-hide">Proje Ayarları</span>
-                        </a>
-                    </li>
+
                     <li class="nav-main-heading">
                         <span class="sidebar-mini-visible">VR</span><span class="sidebar-mini-hidden">Various</span>
                     </li>
-
 
 
                     <li class="{{ request()->is('examples/*') ? ' open' : '' }}">

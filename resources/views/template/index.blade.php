@@ -1,65 +1,34 @@
 @extends('layouts.backend')
 @section('css_after')
     <!-- Page JS Plugins CSS -->
-    <link rel="stylesheet" href="{{ asset('js/plugins/nestable2/jquery.nestable.min.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('css/pages/x-editable.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/pages/nested.css') }}">
+    <style>
+
+    </style>
 @stop
 @section('js_after')
     <!-- Page JS Plugins -->
+    <script src="{{ asset('js/pages/x-editable.js') }}"></script>
     <script src="{{ asset('js/pages/nestable.js') }}"></script>
     <script>
-
-        $(document).ready(function () {
-
-            var updateOutput = function (e) {
-                var list = e.length ? e : $(e.target),
-                    output = list.data('output');
-                if (window.JSON) {
-                    output.val(window.JSON.stringify(list.nestable('serialize')));//, null, 2));
-                 //   console.log(output.val())
-                } else {
-                    output.val('JSON browser support required for this demo.');
-
-                }
-
-                $.post("{{ action('TemplateController@updateTemplate') }}",{
-                    'data' : output.val()
-                },
-                function (data) {
-                    console.log(data);
-                }
-                )
-            };
-
-            // activate Nestable for list 1
-            $('#nestable').nestable({
-                group: 1,
-
-            })
-                .on('change', updateOutput);
-
-
-            // output initial serialised data
-            updateOutput($('#nestable').data('output', $('#nestable-output')));
-
+        $('.x-editable').editable({
+            url: '/dashboard/templates/templateUpdateTitle',
+            placements: 'top',
+            title: 'Sekme Adını Değiştirbilsinz',
+            success: function (response, newValue) {
+                console.log(response, newValue);
+            }
 
         });
-
-
     </script>
 
 @stop
 @section('content')
     <!-- Page Content -->
     <div class="content">
-        <h2 class="content-heading">
-            <button type="button" class="btn btn-sm btn-rounded btn-primary d-md-none float-right ml-5"
-                    data-toggle="class-toggle" data-target=".js-inbox-nav" data-class="d-none d-md-block">Menu
-            </button>
-            <button type="button" class="btn btn-sm btn-rounded btn-success float-right" data-toggle="modal"
-                    data-target="#modal-compose">New Message
-            </button>
 
-        </h2>
         <div class="row">
             <div class="col-md-4">
                 <!-- Collapsible Inbox Navigation -->
@@ -67,7 +36,13 @@
                     <div class="block">
                         <div class="block-header block-header-default">
                             <h3 class="block-title">Projeler</h3>
-
+                            @if($selectTemplates != null)
+                                <div class="block-options">
+                                    <a href="{{ action('TemplateController@deleteTemplate',$selectTemplates) }}"
+                                       onclick="return confirm(' Aktif Olan Proje tasarımı ve tüm alt sekmeleri silinecek !.. \n\r Eminmisiniz ?');"
+                                       type="button" class="btn btn-sm btn-danger"> Aktif Projeyi Sil</a>
+                                </div>
+                            @endif
                         </div>
                         <div class="block-content">
                             <ul class="nav nav-pills flex-column push">
@@ -79,98 +54,119 @@
                                         @endif
                                             "
                                            href="{{action('TemplateController@index', $template)}}">
-                                            <span><i class="fa fa-fw fa-inbox mr-5"></i> {{ $template->name }}</span>
-                                            <span class="badge badge-pill badge-secondary"></span>
+                                            <span><i
+                                                    class="fa fa-building mr-5"></i> {{ $template->name }}</span>
                                         </a>
                                     </li>
                                 @endforeach
 
                             </ul>
+                            <div class="block">
+                                <div class="block-content-full bg-secondary  p-50">
+                                    <form action="{{ action('TemplateController@TemplateStore') }}" method="post">
+                                        @csrf
+                                        <div class="form-group row">
+                                            <input name="name" class="form-control" placeholder="Proje Adı" required>
+                                        </div>
+                                        <div class="form-group row">
+                                <textarea name="description" rows="5" class="form-control" placeholder="Açıklama"
+                                          required></textarea>
+                                        </div>
+                                        <div class="form-group row">
+                                            <button type="submit" class="btn btn-sm btn-success"><i
+                                                    class="fa fa-plus"></i> Kaydet
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <!-- END Collapsible Inbox Navigation -->
 
-                <!-- Recent Contacts -->
-                <div class="block block-themed">
-                    <div class="block-header  bg-danger">
-                        <h3 class="block-title">Yeni Proje Tasarımı Yarat </h3>
-                    </div>
-                    <div class="block-content block-content-full">
-                        <form action="{{ action('TemplateController@TemplateStore') }}" method="post">
-                            @csrf
-                            <div class="form-group row">
-                                <input name="name" class="form-control" placeholder="Proje Adı" required>
-                            </div>
-                            <div class="form-group row">
-                                <textarea name="description" rows="5" class="form-control" placeholder="Açıklama"
-                                          required></textarea>
-                            </div>
-                            <div class="form-group row">
-                                <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-plus"></i> Kaydet
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <!-- END Recent Contacts -->
-            </div>
-            <div class="col-md-8">
-                <!-- Message List -->
-                <div class="block">
-                    <div class="block-header block-header-default">
-                        <div class="block-title">
-                            <strong>{{ ($selectTemplates !=null ? $selectTemplates->name : '') .' Aşamaları' }}</strong>
-                        </div>
-                        <div class="block-options">
-                            <button type="button" class="btn-block-option" data-toggle="block-option"
-                                    data-action="state_toggle" data-action-mode="demo">
-                                <i class="si si-refresh"></i>
-                            </button>
-                            <button type="button" class="btn-block-option" data-toggle="block-option"
-                                    data-action="fullscreen_toggle"></button>
-                        </div>
-                    </div>
-                    <div class="block-content">
-                        <div class="row">
 
-                            <div class="col-md-12">
-                                <!-- Simple -->
-                                <div class="block">
-                                    <div class="dd" id="nestable">
-                                        <ol class="dd-list">
-                                            @foreach($selectTemplates->categories->where('templatedetail_id',null) as $selectT)
-                                                <li class="dd-item" data-id="{{ $selectT->id }}">
-                                                    <div class="dd-handle">{{'('.$selectT->id.') '.$selectT->name}}</div>
-                                                    @include('template.include-categories', ['children' => $selectT])
-                                                </li>
-                                            @endforeach
-                                        </ol>
+            </div>
+            @if($selectTemplates !=null)
+                <div class="col-md-8">
+                    <!-- Message List -->
+                    <div class="block" id="designBlock">
+                        <div class="block-header block-header-default">
+                            <div class="block-title">
+                                <strong>{{ ($selectTemplates !=null ? $selectTemplates->name : '') .' Aşamaları' }}</strong>
+                            </div>
+                            <div class="block-options">
+                                @if($selectTemplates->categories->count() >0)
+                                    <a href="{{ action('TemplateController@deleteTemplateDetails',$selectTemplates) }}"
+                                       onclick="return confirm(' Aktif Olan Projenin Tüm Sekmeleri silinecek !.. \n\r Eminmisiniz ?');"
+                                       type="button" class="btn btn-sm btn-danger"> Aktif Proje Detaylarını Sil</a>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="block-content">
+                            <div class="row">
+
+                                <div class="col-md-12">
+                                    <!-- Simple -->
+                                    <div class="block">
+                                        <div class="js-nestable-connected-treeview dd" id="nestable">
+                                            <ol class="dd-list">
+                                                @foreach($selectTemplates->categories->where('templatedetail_id',null) as $selectT)
+                                                    <li class="dd-item dd3-item" data-id="{{ $selectT->id }}">
+                                                        <div class="dd-handle dd3-handle"></div>
+                                                        <div class="dd3-content">
+                                                            <div class="pull-left"><a href="#" class="x-editable"
+                                                                                      data-type="text"
+                                                                                      data-pk="{{ $selectT->id }}">
+                                                                    {{$selectT->name}}
+                                                                </a>
+                                                            </div>
+                                                            <div class="pull-right">
+                                                                <a href="{{ action('TemplateController@templateDetailsDelete', $selectT) }}" class="btn btn-sm btn-danger">Sil</a>
+                                                            </div>
+
+                                                        </div>
+
+                                                        @include('template.include-categories', ['children' => $selectT])
+                                                    </li>
+                                                @endforeach
+                                            </ol>
+                                        </div>
                                     </div>
+                                    <div class="block">
+                                        <div class="block-content-full bg-secondary  p-50">
+                                            <form action="{{ action('TemplateController@TemplateDetailsStore') }}"
+                                                  method="post">
+                                                @csrf
+                                                <input type="hidden" name="template_id"
+                                                       value="{{ $selectTemplates->id }}">
+                                                <div class="form-group row">
+                                                    <div class="col-md-6">
+                                                        <input name="category" class="form-control" id="category"
+                                                               type="text" placeholder="Ekle" required>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <button type="submit" class="btn btn-success"><i
+                                                                class="fa fa-plus"></i> Ekle
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+
+                                        </div>
+                                    </div>
+
+                                    <textarea class="form-control" style="display: none" rows="10"
+                                              id="nestable-output"></textarea>
+
                                 </div>
-                                <!-- END Simple -->
-                                <form action="#" method="post">
-                                    @csrf
-                                    <input type="hidden" name="template_id" value="{{ $selectTemplates->id }}">
-                                    <div class="form-group row">
-                                        <div class="col-md-6">
-                                            <input name="category" class="form-control" id="category" type="text" placeholder="Ekle" required>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <button type="submit" class="btn btn-danger">Ekle</button>
-                                        </div>
-                                    </div>
-                                </form>
 
-                                <textarea class="form-control" rows="10" id="nestable-output"></textarea>
                             </div>
-
                         </div>
                     </div>
+                    <!-- END Message List -->
                 </div>
-                <!-- END Message List -->
-            </div>
-
+            @endif
         </div>
     </div>
     <!-- END Page Content -->
