@@ -13,11 +13,7 @@ class TemplateController extends Controller
         $this->middleware('auth');
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index(Template $template = null)
     {
         $selectTemplates = null;
@@ -26,11 +22,10 @@ class TemplateController extends Controller
             $selectTemplates = Template::where('id', $template->id)->firstOrFail();
         }
 
-        // return $selectTemplates->categories;
+
 
         return view('template.index', compact('templates', 'selectTemplates'));
     }
-
     public function updateTemplate(Request $request)
     {
 
@@ -57,7 +52,6 @@ class TemplateController extends Controller
         }
 
     }
-
     function subTemplate($children, $parent ){
 
         foreach ($children as $keys => $child){
@@ -77,10 +71,8 @@ class TemplateController extends Controller
 
 
     }
-
     public function TemplateStore(Request $request)
     {
-        $data = $request->all();
 
         //   return $data['name'];
         // return $data['description'];
@@ -91,13 +83,54 @@ class TemplateController extends Controller
         ]);
 
         Template::create([
-            'name' => $data['name'],
-            'description' => $data['description'] == null,
+            'name' => $request->name,
+            'description' => $request->description
         ]);
+      //  dd($request->all());
 
-        return redirect()->action($this->index());
+        return redirect()->back();
     }
     public function TemplateDetailsStore(Request $request){
+
+        $this->validate($request, [
+            'template_id' => 'required',
+            'category' => 'required',
+        ]);
+
+        Templatedetail::create([
+            'template_id' => $request->template_id,
+            'name' => $request->category,
+            'templatedetail_id' => 0
+        ]);
+
+        return redirect()->back();
+    }
+    public function deleteTemplate(Template $template){
+        Template::destroy($template->id);
+        return redirect()->action($this->index());
+    }
+    public function deleteTemplateDetails(Template $template){
+
+     $temp =   Template::find($template->id);
+     $temp->categories()->delete();
+
+     return redirect()->back();
+    }
+    public function templateUpdateTitle(Request $request){
+
+        Templatedetail::find($request->get('pk'))
+            ->update(
+                ['name' => $request->value]
+            );
+
+        return response()->json($request->all());
+
+    }
+
+    public function templateDetailsDelete(Templatedetail $templatedetail){
+        Templatedetail::destroy($templatedetail->id);
+
+        return redirect()->back();
 
     }
 
