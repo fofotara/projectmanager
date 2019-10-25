@@ -27895,6 +27895,28 @@ function () {
 
 /***/ }),
 
+/***/ "./resources/sass/custom/nested.scss":
+/*!*******************************************!*\
+  !*** ./resources/sass/custom/nested.scss ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/custom/x-editable.scss":
+/*!***********************************************!*\
+  !*** ./resources/sass/custom/x-editable.scss ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./resources/sass/main.scss":
 /*!**********************************!*\
   !*** ./resources/sass/main.scss ***!
@@ -27907,9 +27929,9 @@ function () {
 /***/ }),
 
 /***/ 0:
-/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** multi ./resources/js/codebase/app.js ./resources/sass/main.scss ./resources/sass/app.scss ./resources/sass/codebase/themes/corporate.scss ./resources/sass/codebase/themes/earth.scss ./resources/sass/codebase/themes/elegance.scss ./resources/sass/codebase/themes/flat.scss ./resources/sass/codebase/themes/pulse.scss ***!
-  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/codebase/app.js ./resources/sass/main.scss ./resources/sass/app.scss ./resources/sass/codebase/themes/corporate.scss ./resources/sass/codebase/themes/earth.scss ./resources/sass/codebase/themes/elegance.scss ./resources/sass/codebase/themes/flat.scss ./resources/sass/codebase/themes/pulse.scss ./resources/sass/custom/x-editable.scss ./resources/sass/custom/nested.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -27920,7 +27942,9 @@ __webpack_require__(/*! C:\laragon\www\projectmanager\resources\sass\codebase\th
 __webpack_require__(/*! C:\laragon\www\projectmanager\resources\sass\codebase\themes\earth.scss */"./resources/sass/codebase/themes/earth.scss");
 __webpack_require__(/*! C:\laragon\www\projectmanager\resources\sass\codebase\themes\elegance.scss */"./resources/sass/codebase/themes/elegance.scss");
 __webpack_require__(/*! C:\laragon\www\projectmanager\resources\sass\codebase\themes\flat.scss */"./resources/sass/codebase/themes/flat.scss");
-module.exports = __webpack_require__(/*! C:\laragon\www\projectmanager\resources\sass\codebase\themes\pulse.scss */"./resources/sass/codebase/themes/pulse.scss");
+__webpack_require__(/*! C:\laragon\www\projectmanager\resources\sass\codebase\themes\pulse.scss */"./resources/sass/codebase/themes/pulse.scss");
+__webpack_require__(/*! C:\laragon\www\projectmanager\resources\sass\custom\x-editable.scss */"./resources/sass/custom/x-editable.scss");
+module.exports = __webpack_require__(/*! C:\laragon\www\projectmanager\resources\sass\custom\nested.scss */"./resources/sass/custom/nested.scss");
 
 
 /***/ })

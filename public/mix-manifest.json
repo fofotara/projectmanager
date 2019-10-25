@@ -7,8 +7,11 @@
     "/css/themes/elegance.css": "/css/themes/elegance.css",
     "/css/themes/flat.css": "/css/themes/flat.css",
     "/css/themes/pulse.css": "/css/themes/pulse.css",
+    "/css/pages/x-editable.css": "/css/pages/x-editable.css",
+    "/css/pages/nested.css": "/css/pages/nested.css",
     "/js/frontend.js": "/js/frontend.js",
     "/js/laravel.app.js": "/js/laravel.app.js",
     "/js/pages/nestable.js": "/js/pages/nestable.js",
-    "/js/pages/tables_datatables.js": "/js/pages/tables_datatables.js"
+    "/js/pages/tables_datatables.js": "/js/pages/tables_datatables.js",
+    "/js/pages/x-editable.js": "/js/pages/x-editable.js"
 }

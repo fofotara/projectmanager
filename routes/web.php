@@ -20,22 +20,39 @@ Route::group(['prefix' => 'dashboard'], function () {
 
     Route::get('/','DashboardController@index');
 
-    Route::group(['prefix' => 'users'], function () {
-        Route::get('/','UserController@index');
-        Route::get('/create','UserController@create');
-        Route::post('/create','UserController@store');
+    Route::group(['prefix' => 'settings'], function () {
+        Route::group(['prefix' => 'users'], function () {
+            Route::get('/','UserController@index');
+            Route::get('/create','UserController@create');
+            Route::post('/create','UserController@store');
 
 
-        Route::get('/profile','UserController@profile');
-        Route::post('/profile/{user}/update','UserController@profileUpdate');
+            Route::get('/profile','UserController@profile');
+            Route::post('/profile/{user}/update','UserController@profileUpdate');
+        });
+        Route::group(['prefix' => 'templates'], function () {
+            Route::get('/{template?}','TemplateController@index');
+            Route::post('/create','TemplateController@TemplateStore');
+            Route::post('updateTemplate','TemplateController@updateTemplate');
+            Route::post('TemplateDetailsStore','TemplateController@TemplateDetailsStore');
+
+            Route::get('deleteTemplate/{template}','TemplateController@deleteTemplate');
+            Route::get('deleteTemplateDetails/{template}','TemplateController@deleteTemplateDetails');
+
+            Route::post('templateUpdateTitle','TemplateController@templateUpdateTitle');
+
+            Route::get('templateDetailsDelete/{templatedetail}','TemplateController@templateDetailsDelete');
+        });
+
+
     });
-    Route::group(['prefix' => 'templates'], function () {
-        Route::get('/{template?}','TemplateController@index');
-        Route::post('/create','TemplateController@TemplateStore');
-        Route::post('updateTemplate','TemplateController@updateTemplate');
-        Route::post('TemplateDetailsStore','TemplateController@TemplateDetailsStore');
 
+    Route::group(['prefix' => 'projects'], function () {
+        Route::get('/','ProjectController@index');
+        Route::get('create','ProjectController@create');
     });
+
+
 });
 
 
