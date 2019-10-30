@@ -20,9 +20,12 @@ mix
     .sass('resources/sass/codebase/themes/elegance.scss', 'public/css/themes/')
     .sass('resources/sass/codebase/themes/flat.scss', 'public/css/themes/')
     .sass('resources/sass/codebase/themes/pulse.scss', 'public/css/themes/')
-        // FrontEnd //
+        // Custom //
+    .sass('resources/sass/custom/x-editable.scss', 'public/css/pages/')
+    .sass('resources/sass/custom/nested.scss', 'public/css/pages/')
 
-    /* JS */
+        
+/* JS */
 
     .js('resources/js/codebase/app.js', 'public/js/codebase.app.js')
     .js('resources/js/app.js', 'public/js/laravel.app.js')
@@ -32,6 +35,7 @@ mix
     /* Page JS */
     .js('resources/js/pages/tables_datatables.js', 'public/js/pages/tables_datatables.js')
     .js('resources/js/pages/be_comp_nestable.min.js', 'public/js/pages/nestable.js')
+    .js('resources/js/pages/x-editable.js', 'public/js/pages/')
 
     /* Tools */
    // .browserSync('localhost:8000')

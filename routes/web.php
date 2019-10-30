@@ -50,6 +50,9 @@ Route::group(['prefix' => 'dashboard'], function () {
     Route::group(['prefix' => 'projects'], function () {
         Route::get('/','ProjectController@index');
         Route::get('create','ProjectController@create');
+        Route::post('create-1','ProjectController@createOne');
+
+        Route::post('updateProject','ProjectController@updateProject');
     });
 
 

@@ -22,8 +22,6 @@ class TemplateController extends Controller
             $selectTemplates = Template::where('id', $template->id)->firstOrFail();
         }
 
-
-
         return view('template.index', compact('templates', 'selectTemplates'));
     }
     public function updateTemplate(Request $request)
