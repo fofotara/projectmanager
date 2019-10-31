@@ -30,7 +30,9 @@
 
             // activate Nestable for list 1
             try {
-                $('#nestable').nestable() .on('change', updateOutput);
+                $('#nestable').nestable({
+                    maxDepth:15
+                }) .on('change', updateOutput);
 
                 // output initial serialised data
                 updateOutput($('#nestable').data('output', $('#nestable-output')));
@@ -38,7 +40,7 @@
 
                 console.log('Element Nothing')
 
-            };
+            }
 
             $('#editable-mode').on('click', function () {
                 document.getElementById('nestable').eve
@@ -47,9 +49,9 @@
         });
 
         $('.x-editable').editable({
-            url: '/dashboard/templates/templateUpdateTitle',
+            url: '/dashboard/projects/projectUpdateTitle',
             placements: 'top',
-            title: 'Sekme Adını Değiştirbilsinz',
+            title: 'Sekme Adını Değiştirebilsinz',
             success: function (response, newValue) {
                 console.log(response, newValue);
             }
@@ -59,26 +61,9 @@
 
     <script src="{{ asset('js/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
     <script src="{{ asset('js/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.tr.min.js') }}"></script>
-    <script>
-        $('.datetimepicker').datepicker({
-            language: 'tr'
-        });
 
-        $('#title').on('keyup', function (e) {
-            //console.log($('#title').val());
-            $('#titleCopy').html($('#title').val());
-        });
-        $('#budget').on('keyup', function (e) {
-            //console.log($('#title').val());
-            $('#budgetCopy').html($('#budget').val() + ' .-TL.');
-        });
-        $('#address').on('keyup', function (e) {
-            //console.log($('#title').val());
-            $('#addressCopy').html($('#address').val());
-        });
-    </script>
 @stop
-@section('css_before')
+@section('css_after')
     <link href="{{ asset('js/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/pages/x-editable.css') }}">
     <link rel="stylesheet" href="{{ asset('css/pages/nested.css') }}">
@@ -137,8 +122,8 @@
                     </div>
                 </div>
             </div>
-            <form action="{{ action('ProjectController@createOne') }}" method="post">
-                @csrf
+
+
                 <div class="block-content block-content-full">
                     <div class="row">
                         <div class="col-md-6 order-md-2 py-20">
@@ -169,33 +154,52 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 order-md-1 py-20">
+                        <div class="col-md-6 order-md-1 py-20" style="position: relative">
+                            <div class="block">
+                                <div class="block-content-full bg-secondary  p-50">
+                                    <form action="{{ action('ProjectController@projectDetailsStore') }}"
+                                          method="post">
+                                        @csrf
+                                        <input type="hidden" name="template_id"
+                                               value="{{ $project->id }}">
+                                        <div class="form-group row">
+                                            <div class="col-md-6">
+                                                <input name="category" class="form-control" id="category"
+                                                       type="text" placeholder="Ekle" required>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <button type="submit" class="btn btn-success"><i
+                                                        class="fa fa-plus"></i> Ekle
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
 
+                                </div>
+                            </div>
                             <div class="js-nestable-connected-treeview dd" id="nestable">
                                 <ol class="dd-list">
                                     @foreach($project->categories->where('projectdetail_id',null) as $selectT)
                                         <li class="dd-item dd3-item" data-id="{{ $selectT->id }}">
                                             <div class="dd-handle dd3-handle"></div>
                                             <div class="dd3-content">
-                                                <div class="pull-left"><a href="#" class="x-editable"
-                                                                          data-type="text"
-                                                                          data-pk="{{ $selectT->id }}">
+                                                <div class="pull-left"><a href="#" class="x-editable"  data-type="text"   data-pk="{{ $selectT->id }}">
                                                         {{$selectT->name}}
                                                     </a>
                                                 </div>
                                                 <div class="pull-right">
-                                                    <a href="{{ action('TemplateController@templateDetailsDelete', $selectT) }}" class="btn btn-sm btn-danger">Sil</a>
+                                                    <a href="{{ action('ProjectController@projectDetailsDelete', $selectT) }}" class="btn btn-sm btn-danger">Sil</a>
                                                 </div>
 
                                             </div>
 
-                                            @include('template.include-categories', ['children' => $selectT])
+                                            @include('project.include-categories', ['children' => $selectT])
                                         </li>
                                     @endforeach
                                 </ol>
                             </div>
-                            <textarea class="form-control" style="display: none" rows="10"
-                                      id="nestable-output"></textarea>
+
+                            <textarea class="form-control" style="display: none"  rows="10"  id="nestable-output"></textarea>
                         </div>
                     </div>
                 </div>
@@ -207,7 +211,7 @@
                         <i class="fa fa-backward mr-5"></i> Geri
                     </a>
                 </div>
-            </form>
+
         </div>
     </div>
     <!-- END Page Content -->
