@@ -7,12 +7,12 @@
                     <div class="pull-left"><a href="#" class="x-editable"
                                               data-type="text"
                                               data-pk="{{ $childrenAs->id }}">
-                            {{$childrenAs->name}}
+                            {{$childrenAs->text}}
                         </a>
                     </div>
-                    <div class="pull-right">
-                        <a href="{{ action('ProjectController@projectDetailsDelete', $childrenAs) }}" class="btn btn-sm btn-danger">Sil</a>
-                    </div>
+{{--                    <div class="pull-right">--}}
+{{--                        <a href="{{ action('ProjectController@projectDetailsDelete', $childrenAs) }}" class="btn btn-sm btn-danger">Sil</a>--}}
+{{--                    </div>--}}
 
                 </div>
                 @include('project.include-categories', ['children' => $childrenAs])

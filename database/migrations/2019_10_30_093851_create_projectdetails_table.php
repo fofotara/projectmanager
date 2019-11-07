@@ -17,9 +17,12 @@ class CreateProjectdetailsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('project_id');
             $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
-            $table->integer('sort')->default(0);
-            $table->integer('projectdetail_id')->nullable();
-            $table->string('name');
+            $table->integer('duration')->default(0);
+            $table->float('progress')->default(0);
+            $table->integer('sortorder')->default(0);
+            $table->integer('parent')->nullable();
+            $table->DateTime('start_date')->nullable();
+            $table->string('text');
             $table->timestamps();
         });
     }

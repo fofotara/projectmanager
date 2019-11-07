@@ -18,8 +18,8 @@ class CreateProjectsTable extends Migration
             $table->string('title');
             $table->text('address')->nullable();
             $table->string('image')->default('default-home.jpg');
-            $table->string('startDate')->nullable();
-            $table->string('endDate')->nullable();
+            $table->date('startDate')->nullable();
+            $table->date('endDate')->nullable();
             $table->text('description')->nullable();
             $table->decimal('budget')->default(0);
             $table->decimal('area')->default(0);

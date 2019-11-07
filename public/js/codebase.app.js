@@ -4813,11 +4813,15 @@ module.exports = {
 
 var fails = __webpack_require__(/*! ../internals/fails */ "./node_modules/core-js/internals/fails.js");
 var wellKnownSymbol = __webpack_require__(/*! ../internals/well-known-symbol */ "./node_modules/core-js/internals/well-known-symbol.js");
+var V8_VERSION = __webpack_require__(/*! ../internals/v8-version */ "./node_modules/core-js/internals/v8-version.js");
 
 var SPECIES = wellKnownSymbol('species');
 
 module.exports = function (METHOD_NAME) {
-  return !fails(function () {
+  // We can't use this feature detection in V8 since it causes
+  // deoptimization and serious performance degradation
+  // https://github.com/zloirock/core-js/issues/677
+  return V8_VERSION >= 51 || !fails(function () {
     var array = [];
     var constructor = array.constructor = {};
     constructor[SPECIES] = function () {
@@ -5769,14 +5773,21 @@ module.exports = function (KEY, length, exec, sham) {
     // Symbol-named RegExp methods call .exec
     var execCalled = false;
     var re = /a/;
-    re.exec = function () { execCalled = true; return null; };
 
     if (KEY === 'split') {
+      // We can't use real regex here since it causes deoptimization
+      // and serious performance degradation in V8
+      // https://github.com/zloirock/core-js/issues/306
+      re = {};
       // RegExp[@@split] doesn't call the regex's exec method, but first creates
       // a new one. We need to return the patched regex when creating the new one.
       re.constructor = {};
       re.constructor[SPECIES] = function () { return re; };
+      re.flags = '';
+      re[SYMBOL] = /./[SYMBOL];
     }
+
+    re.exec = function () { execCalled = true; return null; };
 
     re[SYMBOL]('');
     return !execCalled;
@@ -7184,7 +7195,7 @@ var store = __webpack_require__(/*! ../internals/shared-store */ "./node_modules
 (module.exports = function (key, value) {
   return store[key] || (store[key] = value !== undefined ? value : {});
 })('versions', []).push({
-  version: '3.3.2',
+  version: '3.3.6',
   mode: IS_PURE ? 'pure' : 'global',
   copyright: '© 2019 Denis Pushkarev (zloirock.ru)'
 });
@@ -7427,6 +7438,51 @@ var postfix = Math.random();
 module.exports = function (key) {
   return 'Symbol(' + String(key === undefined ? '' : key) + ')_' + (++id + postfix).toString(36);
 };
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/internals/user-agent.js":
+/*!******************************************************!*\
+  !*** ./node_modules/core-js/internals/user-agent.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var getBuiltIn = __webpack_require__(/*! ../internals/get-built-in */ "./node_modules/core-js/internals/get-built-in.js");
+
+module.exports = getBuiltIn('navigator', 'userAgent') || '';
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/internals/v8-version.js":
+/*!******************************************************!*\
+  !*** ./node_modules/core-js/internals/v8-version.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var global = __webpack_require__(/*! ../internals/global */ "./node_modules/core-js/internals/global.js");
+var userAgent = __webpack_require__(/*! ../internals/user-agent */ "./node_modules/core-js/internals/user-agent.js");
+
+var process = global.process;
+var versions = process && process.versions;
+var v8 = versions && versions.v8;
+var match, version;
+
+if (v8) {
+  match = v8.split('.');
+  version = match[0] + match[1];
+} else if (userAgent) {
+  match = userAgent.match(/Edge\/(\d+)/);
+  if (!match || match[1] >= 74) {
+    match = userAgent.match(/Chrome\/(\d+)/);
+    if (match) version = match[1];
+  }
+}
+
+module.exports = version && +version;
 
 
 /***/ }),
@@ -24548,7 +24604,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_es_string_replace__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! core-js/modules/es.string.replace */ "./node_modules/core-js/modules/es.string.replace.js");
 /* harmony import */ var core_js_modules_es_string_replace__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_replace__WEBPACK_IMPORTED_MODULE_19__);
 /**
- * SimpleBar.js - v5.0.2
+ * SimpleBar.js - v5.0.4
  * Scrollbars, simpler.
  * https://grsmto.github.io/simplebar/
  *
@@ -24579,12 +24635,16 @@ __webpack_require__.r(__webpack_exports__);
 
 var cachedScrollbarWidth = null;
 var cachedDevicePixelRatio = null;
-window.addEventListener('resize', function () {
-  if (cachedDevicePixelRatio !== window.devicePixelRatio) {
-    cachedDevicePixelRatio = window.devicePixelRatio;
-    cachedScrollbarWidth = null;
-  }
-});
+
+if (can_use_dom__WEBPACK_IMPORTED_MODULE_2___default.a) {
+  window.addEventListener('resize', function () {
+    if (cachedDevicePixelRatio !== window.devicePixelRatio) {
+      cachedDevicePixelRatio = window.devicePixelRatio;
+      cachedScrollbarWidth = null;
+    }
+  });
+}
+
 function scrollbarWidth() {
   if (cachedScrollbarWidth === null) {
     if (typeof document === 'undefined') {
@@ -25431,32 +25491,7 @@ SimpleBar.initHtmlApi = function () {
 
   if (typeof MutationObserver !== 'undefined') {
     // Mutation observer to observe dynamically added elements
-    this.globalObserver = new MutationObserver(function (mutations) {
-      mutations.forEach(function (mutation) {
-        Array.prototype.forEach.call(mutation.addedNodes, function (addedNode) {
-          if (addedNode.nodeType === 1) {
-            if (addedNode.hasAttribute('data-simplebar')) {
-              !SimpleBar.instances.has(addedNode) && new SimpleBar(addedNode, getOptions(addedNode.attributes));
-            } else {
-              Array.prototype.forEach.call(addedNode.querySelectorAll('[data-simplebar]:not([data-simplebar="init"])'), function (el) {
-                !SimpleBar.instances.has(el) && new SimpleBar(el, getOptions(el.attributes));
-              });
-            }
-          }
-        });
-        Array.prototype.forEach.call(mutation.removedNodes, function (removedNode) {
-          if (removedNode.nodeType === 1) {
-            if (removedNode.hasAttribute('[data-simplebar]:not([data-simplebar="init"])')) {
-              SimpleBar.instances.has(removedNode) && SimpleBar.instances.get(removedNode).unMount();
-            } else {
-              Array.prototype.forEach.call(removedNode.querySelectorAll('[data-simplebar]:not([data-simplebar="init"])'), function (el) {
-                SimpleBar.instances.has(el) && SimpleBar.instances.get(el).unMount();
-              });
-            }
-          }
-        });
-      });
-    });
+    this.globalObserver = new MutationObserver(SimpleBar.handleMutations);
     this.globalObserver.observe(document, {
       childList: true,
       subtree: true
@@ -25472,6 +25507,33 @@ SimpleBar.initHtmlApi = function () {
     document.addEventListener('DOMContentLoaded', this.initDOMLoadedElements);
     window.addEventListener('load', this.initDOMLoadedElements);
   }
+};
+
+SimpleBar.handleMutations = function (mutations) {
+  mutations.forEach(function (mutation) {
+    Array.prototype.forEach.call(mutation.addedNodes, function (addedNode) {
+      if (addedNode.nodeType === 1) {
+        if (addedNode.hasAttribute('data-simplebar')) {
+          !SimpleBar.instances.has(addedNode) && new SimpleBar(addedNode, getOptions(addedNode.attributes));
+        } else {
+          Array.prototype.forEach.call(addedNode.querySelectorAll('[data-simplebar]:not([data-simplebar="init"])'), function (el) {
+            !SimpleBar.instances.has(el) && new SimpleBar(el, getOptions(el.attributes));
+          });
+        }
+      }
+    });
+    Array.prototype.forEach.call(mutation.removedNodes, function (removedNode) {
+      if (removedNode.nodeType === 1) {
+        if (removedNode.hasAttribute('[data-simplebar="init"]')) {
+          SimpleBar.instances.has(removedNode) && SimpleBar.instances.get(removedNode).unMount();
+        } else {
+          Array.prototype.forEach.call(removedNode.querySelectorAll('[data-simplebar="init"]'), function (el) {
+            SimpleBar.instances.has(el) && SimpleBar.instances.get(el).unMount();
+          });
+        }
+      }
+    });
+  });
 };
 
 SimpleBar.getOptions = getOptions;

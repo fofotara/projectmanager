@@ -13,5 +13,6 @@
     "/js/laravel.app.js": "/js/laravel.app.js",
     "/js/pages/nestable.js": "/js/pages/nestable.js",
     "/js/pages/tables_datatables.js": "/js/pages/tables_datatables.js",
-    "/js/pages/x-editable.js": "/js/pages/x-editable.js"
+    "/js/pages/x-editable.js": "/js/pages/x-editable.js",
+    "/js/stock.js": "/js/stock.js"
 }

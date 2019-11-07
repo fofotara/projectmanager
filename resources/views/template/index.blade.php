@@ -16,7 +16,7 @@
         $('.x-editable').editable({
             url: '/dashboard/templates/templateUpdateTitle',
             placements: 'top',
-            title: 'Sekme Adını Değiştirbilsinz',
+            title: 'Sekme Adını Değiştirebilsiniz',
             success: function (response, newValue) {
                 console.log(response, newValue);
             }
@@ -49,7 +49,7 @@
 
             // activate Nestable for list 1
             try {
-                $('#nestable').nestable() .on('change', updateOutput);
+                $('#nestable').nestable({maxDepth:15 } ) .on('change', updateOutput);
 
                 // output initial serialised data
                 updateOutput($('#nestable').data('output', $('#nestable-output')));

@@ -24,11 +24,12 @@ mix
     .sass('resources/sass/custom/x-editable.scss', 'public/css/pages/')
     .sass('resources/sass/custom/nested.scss', 'public/css/pages/')
 
-        
+
 /* JS */
 
     .js('resources/js/codebase/app.js', 'public/js/codebase.app.js')
     .js('resources/js/app.js', 'public/js/laravel.app.js')
+    .js('resources/js/stock.js','public/js/stock.js')
 
     // FrontEnd //
     .js('resources/js/frontend/app.js', 'public/js/frontend.js')

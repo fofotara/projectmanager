@@ -21,6 +21,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Template whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Template whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Templatedetail[] $categories
+ * @property-read int|null $categories_count
  */
 class Template extends Model
 {

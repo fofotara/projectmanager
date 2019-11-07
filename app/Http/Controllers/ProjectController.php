@@ -6,16 +6,26 @@ use App\Project;
 use App\Projectdetail;
 use App\Template;
 use App\Templatedetail;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use function GuzzleHttp\Promise\all;
 use function Sodium\add;
 
 class ProjectController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
 
-        return;
+        $projects = Project::orderByDesc('created_at')->get();
+        return view('project.index', compact('projects'));
+    }
+    public function edit(Project $project){
 
+        return view('project.edit', compact('project'));
     }
 
     public function create()
@@ -26,7 +36,8 @@ class ProjectController extends Controller
 
     public function createOne(Request $request, Project $project = null)
     {
-
+        //  dd(Carbon::createFromFormat('d.m.Y', $request->get('startDate'))->format('Y-m-d'));
+        // dd($project, $request->all());
         $this->validate($request, [
             'title' => 'required',
             'template' => 'required',
@@ -41,8 +52,8 @@ class ProjectController extends Controller
         $project = Project::create([
             'title' => $request->get('title'),
             'address' => $request->get('address'),
-            'startDate' => $request->get('startDate'),
-            'endDate' => $request->get('endDate'),
+            'startDate' => Carbon::createFromFormat('d.m.Y', $request->get('startDate'))->format('Y-m-d'),
+            'endDate' =>  Carbon::createFromFormat('d.m.Y', $request->get('endDate'))->format('Y-m-d'),
             'description' => $request->get('description'),
             'budget' => $request->get('budget'),
             'area' => $request->get('area'),
@@ -61,9 +72,11 @@ class ProjectController extends Controller
             $ustCategory = Projectdetail::create(
                 [
                     'project_id' => $project->id,
-                    'projectdetail_id' => 0,
-                    'sort' => $category->sort,
-                    'name' => $category->name
+                    'parent' => 0,
+                    'sortorder' => $category->sort,
+                    'text' => $category->name,
+                    'start_date' => Carbon::now(),
+                    'duration' => 5
                 ]
             );
 
@@ -71,10 +84,62 @@ class ProjectController extends Controller
 
         }
 
+        return redirect()->action('ProjectController@projectCreateDetails', $project);
+
+    }
+    public function projectCreateDetails(Project $project){
+
+         $project = Project::whereId($project->id)
+             ->with('categories')
+         ->first();
+        // return $project->categories;
         return view('project.createOne', compact('project'));
+    }
+    public function projectDetailsStore(Request $request){
+
+
+        $this->validate($request, [
+            'template_id' => 'required',
+            'category' => 'required',
+        ]);
+
+        Projectdetail::create([
+            'project_id' => $request->template_id,
+            'text' => $request->category,
+            'parent' => 0,
+            'start_date' => Carbon::now(),
+
+        ]);
+
+        return redirect()->back();
+    }
+    public function projectDetailsDelete(Projectdetail $projectdetail){
+        Projectdetail::destroy($projectdetail->id);
+        return redirect()->back();
+    }
+    //X_EDITABLE
+    public function projectUpdateTitle(Request $request){
+
+        Projectdetail::find($request->get('pk'))
+            ->update(
+                ['text' => $request->value]
+            );
+
+        return response()->json($request->all());
 
     }
 
+    public function projectUpdateStartDate(Request $request){
+
+        Projectdetail::find($request->get('pk'))
+            ->update(
+                ['start_date' => $request->value]
+            );
+
+        return response()->json($request->all());
+
+    }
+    //X_EDITABLE
     private function addChieldCategory($project,$category,$ustCategory)
     {
         $chieldCategories = Templatedetail::where('templatedetail_id', $category->id)->get();
@@ -87,9 +152,9 @@ class ProjectController extends Controller
             $birustCategory = Projectdetail::create(
                 [
                     'project_id' => $project->id,
-                    'projectdetail_id' => $ustCategory,
-                    'name' => $chieldCategory->name,
-                    'sort' => $chieldCategory->sort
+                    'parent' => $ustCategory,
+                    'text' => $chieldCategory->name,
+                    'sortorder' => $chieldCategory->sort
                 ]
             );
 
@@ -107,8 +172,8 @@ class ProjectController extends Controller
 
             Projectdetail::where('id', $row)
                 ->update([
-                    'sort' => $key,
-                    'projectdetail_id' => 0
+                    'sortorder' => $key,
+                    'parent' => 0
 
                 ]);
 
@@ -129,8 +194,8 @@ class ProjectController extends Controller
 
             Projectdetail::where('id', $child)
                 ->update([
-                    'projectdetail_id' => $parent,
-                    'sort' => $keys
+                    'parent' => $parent,
+                    'sortorder' => $keys
                 ]);
             if (isset($child['children'])){
                 if(count($child['children']) > 0){
@@ -139,6 +204,17 @@ class ProjectController extends Controller
             }
 
         }
+
+
+    }
+
+    //AJAX
+
+    public function projectDetail($id){
+
+        $projectDetail = Projectdetail::find($id);
+
+        return response()->json($projectDetail);
 
 
     }

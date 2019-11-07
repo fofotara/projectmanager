@@ -6,7 +6,7 @@
                 <div class="dd3-content">
                     <div class="pull-left"><a href="#" class="x-editable"
                                               data-type="text"
-                                              data-pk="{{ $selectT->id }}">
+                                              data-pk="{{ $childrenAs->id }}">
                             {{$childrenAs->name}}
                         </a>
                     </div>

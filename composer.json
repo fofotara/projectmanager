@@ -14,7 +14,8 @@
         "laravel/framework": "^6.0",
         "laravel/passport": "^8.0",
         "laravel/tinker": "^1.0",
-        "spatie/laravel-permission": "^3.2"
+        "spatie/laravel-permission": "^3.2",
+        "spatie/laravel-searchable": "^1.4"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.6",
