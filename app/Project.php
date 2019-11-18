@@ -37,6 +37,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Project whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Project whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property float $progress
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Project whereProgress($value)
  */
 class Project extends Model
 {

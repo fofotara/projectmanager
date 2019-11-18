@@ -35,11 +35,16 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Projectdetail whereText($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Projectdetail whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property int $user_id
+ * @property \Illuminate\Support\Carbon|null $end_date
+ * @property-read \App\User $user
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Projectdetail whereEndDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Projectdetail whereUserId($value)
  */
 class Projectdetail extends Model
 {
     protected $guarded = [''];
-    protected $dates =['start_date'];
+    protected $dates =['start_date','end_date'];
 
     public function parents(){
         return $this->belongsTo('App\Projectdetail','parent');
@@ -47,5 +52,8 @@ class Projectdetail extends Model
 
     public function children(){
         return $this->hasMany('App\Projectdetail','parent')->orderBy('sortorder');
+    }
+    public function user(){
+        return $this->belongsTo('App\User','user_id','id');
     }
 }

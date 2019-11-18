@@ -39,6 +39,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request->all());
         $this->validate($request,[
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -55,6 +56,9 @@ class UserController extends Controller
 
        if ($user){
            $user->assignRole($request->get('roles'));
+       }
+       if ($request->hasFile('avatar')){
+           $user->addMedia($request->file('avatar'))->toMediaCollection();
        }
 
         return redirect(action($this->index()));

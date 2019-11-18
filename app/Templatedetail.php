@@ -28,6 +28,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Templatedetail whereTemplateId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Templatedetail whereTemplatedetailId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Templatedetail whereUpdatedAt($value)
+ * @property int $user_id
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Templatedetail whereUserId($value)
  */
 class Templatedetail extends Model
 {
