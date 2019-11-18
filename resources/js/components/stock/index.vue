@@ -19,6 +19,7 @@
                         <th>Kodu</th>
                         <th>Adı</th>
                         <th>Tipi</th>
+                        <th>Adet</th>
                         <th>Kdv</th>
                         <th class="text-center">--</th>
                     </tr>
@@ -42,6 +43,7 @@
                         <td>{{ sItem.code }}</td>
                         <td>{{ sItem.name }}</td>
                         <td>{{ sItem.unit }}</td>
+                        <td>1</td>
                         <td>{{ sItem.tax }}</td>
                         <td>
                             <button class="btn btn-sm btn-warning" v-on:click="editStock(sItem.id)">Düzenle</button>
@@ -211,7 +213,7 @@ export default {
         this.errors.push( "Kdv Seçmelisiniz !..." );
       }
       e.preventDefault();
-      e.target.reset();
+      //e.target.reset();
       if ( !this.errors.length ) {
         // eslint-disable-next-line no-undef
         axios

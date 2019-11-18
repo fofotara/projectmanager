@@ -15,8 +15,24 @@
             <div class="block-content">
 
                 <h2 class="content-heading text-black">Kullanıcı Detayları</h2>
-                <form action="#" method="post">
+                <form action="{{action('UserController@store')}}" method="post" enctype="multipart/form-data">
                     @csrf
+                    <div class="form-group row">
+                        <label class="col-md-3 col-form-label text-md-right" for="name">Resim :</label>
+                        <div class="col-md-7">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input js-custom-file-input-enabled @error('avatar') is-invalid @enderror"
+                                       id="avatar" name="avatar" value="{{old('avatar')}}">
+                                <label class="custom-file-label">Resim</label>
+                            </div>
+
+                            @error('avatar')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
+                        </div>
+                    </div>
                     <div class="form-group row">
                         <label class="col-md-3 col-form-label text-md-right" for="name">Adı Soyadı :</label>
                         <div class="col-md-7">

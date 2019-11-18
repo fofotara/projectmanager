@@ -7195,7 +7195,7 @@ var store = __webpack_require__(/*! ../internals/shared-store */ "./node_modules
 (module.exports = function (key, value) {
   return store[key] || (store[key] = value !== undefined ? value : {});
 })('versions', []).push({
-  version: '3.3.6',
+  version: '3.4.0',
   mode: IS_PURE ? 'pure' : 'global',
   copyright: '© 2019 Denis Pushkarev (zloirock.ru)'
 });
@@ -24604,7 +24604,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_es_string_replace__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! core-js/modules/es.string.replace */ "./node_modules/core-js/modules/es.string.replace.js");
 /* harmony import */ var core_js_modules_es_string_replace__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_replace__WEBPACK_IMPORTED_MODULE_19__);
 /**
- * SimpleBar.js - v5.0.4
+ * SimpleBar.js - v5.0.6
  * Scrollbars, simpler.
  * https://grsmto.github.io/simplebar/
  *
@@ -24973,7 +24973,7 @@ function () {
       this.contentEl = this.options.contentNode || this.el.querySelector("." + this.classNames.contentEl);
       this.offsetEl = this.el.querySelector("." + this.classNames.offset);
       this.maskEl = this.el.querySelector("." + this.classNames.mask);
-      this.placeholderEl = this.el.querySelector("." + this.classNames.placeholder);
+      this.placeholderEl = this.findChild(this.wrapperEl, "." + this.classNames.placeholder);
       this.heightAutoObserverWrapperEl = this.el.querySelector("." + this.classNames.heightAutoObserverWrapperEl);
       this.heightAutoObserverEl = this.el.querySelector("." + this.classNames.heightAutoObserverEl);
       this.axis.x.track.el = this.findChild(this.el, "." + this.classNames.track + "." + this.classNames.horizontal);
@@ -25346,10 +25346,15 @@ function () {
   };
 
   _proto.getScrollbarWidth = function getScrollbarWidth() {
-    // Detect Chrome/Firefox and do not calculate
-    if (getComputedStyle(this.contentWrapperEl, '::-webkit-scrollbar').display === 'none' || 'scrollbarWidth' in document.documentElement.style) {
-      return 0;
-    } else {
+    // Try/catch for FF 56 throwing on undefined computedStyles
+    try {
+      // Detect Chrome/Firefox and do not calculate
+      if (getComputedStyle(this.contentWrapperEl, '::-webkit-scrollbar').display === 'none' || 'scrollbarWidth' in document.documentElement.style) {
+        return 0;
+      } else {
+        return scrollbarWidth();
+      }
+    } catch (e) {
       return scrollbarWidth();
     }
   };

@@ -2,484 +2,44 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84b7f38a-0282-40bd-812d-ecba0a510951" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/database/migrations/2017_09_01_101552_create_tasks_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2017_09_01_102504_create_links_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2017_09_01_105438_add_sortorder_to_tasks_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/LinksTableSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/TasksTableSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/backend/data-dynamic.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/backend/data.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/backend/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/backend/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/backend/router.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/backend/router_dynamic_loading.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/backend/server.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/backend/storage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/backend/storage_tree.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/dhtmlxgantt.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/dhtmlxgantt.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/dhtmlxgantt.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/dhtmlxgantt.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/ext/dhtmlxgantt_click_drag.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/ext/dhtmlxgantt_click_drag.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/ext/dhtmlxgantt_csp.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/ext/dhtmlxgantt_csp.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/ext/dhtmlxgantt_fullscreen.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/ext/dhtmlxgantt_fullscreen.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/ext/dhtmlxgantt_keyboard_navigation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/ext/dhtmlxgantt_keyboard_navigation.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/ext/dhtmlxgantt_marker.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/ext/dhtmlxgantt_marker.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/ext/dhtmlxgantt_multiselect.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/ext/dhtmlxgantt_multiselect.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/ext/dhtmlxgantt_quick_info.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/ext/dhtmlxgantt_quick_info.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/ext/dhtmlxgantt_smart_rendering.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/ext/dhtmlxgantt_smart_rendering.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/ext/dhtmlxgantt_tooltip.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/ext/dhtmlxgantt_tooltip.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/ext/dhtmlxgantt_undo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/ext/dhtmlxgantt_undo.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_ar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_ar.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_be.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_be.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_ca.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_ca.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_cn.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_cn.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_cs.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_cs.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_da.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_da.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_de.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_de.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_el.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_el.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_es.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_es.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_fa.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_fa.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_fi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_fi.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_fr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_fr.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_he.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_he.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_hr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_hr.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_hu.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_hu.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_id.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_id.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_it.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_it.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_jp.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_jp.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_kr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_kr.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_nb.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_nb.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_nl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_nl.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_no.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_no.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_pl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_pl.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_pt.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_pt.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_ro.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_ro.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_ru.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_ru.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_si.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_si.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_sk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_sk.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_sv.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_sv.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_tr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_tr.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_ua.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/locale/locale_ua.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/skins/dhtmlxgantt_broadway.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/skins/dhtmlxgantt_contrast_black.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/skins/dhtmlxgantt_contrast_white.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/skins/dhtmlxgantt_material.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/skins/dhtmlxgantt_meadow.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/skins/dhtmlxgantt_skyblue.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/skins/dhtmlxgantt_terrace.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/dhtmlxgantt.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/dhtmlxgantt.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/ext/dhtmlxgantt_click_drag.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/ext/dhtmlxgantt_csp.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/ext/dhtmlxgantt_fullscreen.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/ext/dhtmlxgantt_keyboard_navigation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/ext/dhtmlxgantt_marker.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/ext/dhtmlxgantt_multiselect.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/ext/dhtmlxgantt_quick_info.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/ext/dhtmlxgantt_smart_rendering.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/ext/dhtmlxgantt_tooltip.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/ext/dhtmlxgantt_undo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/locale/locale.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/locale/locale_ar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/locale/locale_be.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/locale/locale_ca.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/locale/locale_cn.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/locale/locale_cs.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/locale/locale_da.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/locale/locale_de.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/locale/locale_el.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/locale/locale_es.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/locale/locale_fa.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/locale/locale_fi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/locale/locale_fr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/locale/locale_he.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/locale/locale_hr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/locale/locale_hu.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/locale/locale_id.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/locale/locale_it.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/locale/locale_jp.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/locale/locale_kr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/locale/locale_nb.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/locale/locale_nl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/locale/locale_no.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/locale/locale_pl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/locale/locale_pt.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/locale/locale_ro.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/locale/locale_ru.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/locale/locale_si.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/locale/locale_sk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/locale/locale_sv.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/locale/locale_tr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/locale/locale_ua.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/skins/dhtmlxgantt_broadway.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/skins/dhtmlxgantt_contrast_black.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/skins/dhtmlxgantt_contrast_white.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/skins/dhtmlxgantt_material.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/skins/dhtmlxgantt_meadow.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/skins/dhtmlxgantt_skyblue.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/codebase/sources/skins/dhtmlxgantt_terrace.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/license.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/readme.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/01_initialization/01_basic_init.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/01_initialization/02_load_json.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/01_initialization/03_load_xml.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/01_initialization/04_save_rest.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/01_initialization/06_touch_forced.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/01_initialization/07_jquery.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/01_initialization/08_explicit_time_range.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/01_initialization/09_backward_compatibility.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/01_initialization/10_fixed_size.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/01_initialization/11_clickable_links.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/01_initialization/12_localization.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/01_initialization/13_project_duration.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/01_initialization/14_reinitializtion.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/01_initialization/15_connector_json_enddate.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/01_initialization/17_bootstrap.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/01_initialization/18_backward_planning.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/01_initialization/19_tasks_without_dates.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/01_initialization/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/02_extensions/01_quickinfo.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/02_extensions/02_tooltip.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/02_extensions/05_today_line.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/02_extensions/09_multiselection.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/02_extensions/11_full_screen.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/02_extensions/13_smart_rendering.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/02_extensions/14_undo.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/02_extensions/16_keyboard_navigation.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/02_extensions/17_keyboard_navigation_cell.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/02_extensions/18_linked_tasks.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/02_extensions/21_overlay.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/02_extensions/22_tooltip_api.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/02_extensions/23_click_drag_splittask.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/02_extensions/24_click_drag.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/02_extensions/25_click_drag_select_by_drag.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/02_extensions/data.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/02_extensions/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/03_scales/01_multiple_scales.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/03_scales/02_month_days.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/03_scales/03_full_year.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/03_scales/04_days.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/03_scales/05_dynamic_scales.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/03_scales/06_custom_scales.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/03_scales/07_minutes_scale.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/03_scales/08_scale_autoconfig.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/03_scales/10_working_hours.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/03_scales/11_select_column.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/03_scales/12_year_quarters.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/03_scales/13_zoom_to_fit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/03_scales/14_scale_zoom_by_wheelmouse.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/03_scales/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/04_customization/01_outer_content.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/04_customization/02_custom_tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/04_customization/03_link_styles.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/04_customization/04_task_styles.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/04_customization/05_tree_template.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/04_customization/06_highlight_weekend.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/04_customization/07_progress_text.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/04_customization/08_templates.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/04_customization/09_html_content.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/04_customization/10_context_menu.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/04_customization/11_split_task.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/04_customization/13_autosize_container.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/04_customization/16_inline_task_colors.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/04_customization/18_subtasks_displaying.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/04_customization/20_message_types.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/04_customization/21_open_split_task.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/04_customization/common/deadline_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/04_customization/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/05_lightbox/01_lightbox_customization.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/05_lightbox/02_checkbox.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/05_lightbox/02_progress_lightbox.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/05_lightbox/02_radio.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/05_lightbox/03_validation.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/05_lightbox/04_custom_editor.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/05_lightbox/05_template.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/05_lightbox/06_custom_button.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/05_lightbox/07_time.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/05_lightbox/08_parent_selector.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/05_lightbox/09_years_selector_range.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/05_lightbox/10_progress_slider.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/05_lightbox/11_datepicker_for_lightbox.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/05_lightbox/12_select.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/05_lightbox/14_jquery_multiselect.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/05_lightbox/common/v_complete.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/05_lightbox/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/06_skins/01_default.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/06_skins/02_default_lightbox.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/06_skins/03_skyblue.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/06_skins/04_meadow.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/06_skins/05_broadway.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/06_skins/06_dynamic_skin.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/06_skins/07_high_contrast_black.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/06_skins/08_high_contrast_white.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/06_skins/09_material.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/06_skins/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/07_grid/01_builtin_sorting.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/07_grid/02_branch_ordering.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/07_grid/03_filtering.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/07_grid/04_custom_sorting.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/07_grid/05_sort_api.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/07_grid/06_without_grid.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/07_grid/07_custom_buttons.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/07_grid/08_drag_between_levels.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/07_grid/09_wbs_column.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/07_grid/10_scrollable_grid.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/07_grid/11_inline_edit_basic.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/07_grid/12_inline_edit_key_nav.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/07_grid/13_custom_mapping.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/07_grid/14_branch_ordering_highlight.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/07_grid/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/08_api/01_dnd_events.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/08_api/02_constraints.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/08_api/03_validation.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/08_api/04_limit_project.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/08_api/05_limit_drag_dates.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/08_api/06_export.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/08_api/07_export_styles.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/08_api/08_export_other.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/08_api/09_export_store.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/08_api/11_project_structure.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/08_api/12_fit_task_text.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/08_api/13_highlight_drag_position.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/08_api/18_load_from_mpp.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/08_api/19_draggable_projects.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/08_api/21_load_from_excel.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/08_api/22_data_processor.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/08_api/common/excel.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/08_api/common/ms-project.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/08_api/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/09_worktime/01_working_hours_per_day.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/09_worktime/02_working_days.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/09_worktime/03_exclude_holidays.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/09_worktime/04_custom_workday_duration.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/09_worktime/05_adjust_to_worktime.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/09_worktime/06_task_calendars.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/09_worktime/07_resource_calendars.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/09_worktime/08_project_calendars.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/09_worktime/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/10_layout/01_rightside_columns.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/10_layout/02_resource_panel.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/10_layout/03_scale_at_bottom.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/10_layout/04_rtl.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/10_layout/data.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/10_layout/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/11_resources/01_assigning_resources.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/11_resources/06_assign_multiple_owners.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/11_resources/common/jquery_multiselect.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/11_resources/common/jquery_multiselect.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/11_resources/common/resource_filter.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/11_resources/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/DemoProject.mpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/DemoProject.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/constraint-arrow.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/controls_styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/customstyles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/data.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/data.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/data_baselines.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/data_end_dates.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/data_extra.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/data_large.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/data_start_end_dates.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/dhxmenu.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/docs.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/dump.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/loaddata.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/olddata.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/resource_construction_materials.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/resource_project_assignments.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/resource_project_assignments_percents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/resource_project_construction.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/resource_project_multiple_owners.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/resource_project_single_resource.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/resource_project_single_resource_diagram.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/sample_images/about.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/sample_images/about_dis.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/sample_images/bug_reporting.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/sample_images/bug_reporting_dis.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/sample_images/close.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/sample_images/close_dis.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/sample_images/copy.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/sample_images/copy_dis.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/sample_images/cut.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/sample_images/cut_dis.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/sample_images/help.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/sample_images/help_dis.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/sample_images/new.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/sample_images/new_dis.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/sample_images/open.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/sample_images/open_dis.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/sample_images/page_setup.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/sample_images/page_setup_dis.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/sample_images/paste.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/sample_images/paste_dis.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/sample_images/print.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/sample_images/print_dis.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/sample_images/redo.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/sample_images/redo_dis.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/sample_images/save.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/sample_images/save_as.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/sample_images/save_as_dis.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/sample_images/save_dis.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/sample_images/select_all.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/sample_images/select_all_dis.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/sample_images/undo.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/sample_images/undo_dis.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/snippets/dhx_file_dnd.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/snippets/dhx_file_dnd.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/snippets/multiselect.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/common/testdata.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/samples/readme.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/gantt/whatsnew.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/DemoProject.mpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/DemoProject.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/constraint-arrow.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/controls_styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/customstyles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/data.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/data.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/data_baselines.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/data_end_dates.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/data_extra.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/data_large.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/data_start_end_dates.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/dhxmenu.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/docs.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/dump.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/loaddata.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/olddata.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/resource_construction_materials.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/resource_project_assignments.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/resource_project_assignments_percents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/resource_project_construction.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/resource_project_multiple_owners.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/resource_project_single_resource.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/resource_project_single_resource_diagram.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/sample_images/about.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/sample_images/about_dis.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/sample_images/bug_reporting.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/sample_images/bug_reporting_dis.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/sample_images/close.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/sample_images/close_dis.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/sample_images/copy.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/sample_images/copy_dis.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/sample_images/cut.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/sample_images/cut_dis.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/sample_images/help.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/sample_images/help_dis.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/sample_images/new.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/sample_images/new_dis.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/sample_images/open.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/sample_images/open_dis.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/sample_images/page_setup.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/sample_images/page_setup_dis.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/sample_images/paste.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/sample_images/paste_dis.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/sample_images/print.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/sample_images/print_dis.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/sample_images/redo.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/sample_images/redo_dis.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/sample_images/save.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/sample_images/save_as.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/sample_images/save_as_dis.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/sample_images/save_dis.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/sample_images/select_all.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/sample_images/select_all_dis.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/sample_images/undo.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/sample_images/undo_dis.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/snippets/dhx_file_dnd.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/snippets/dhx_file_dnd.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/snippets/multiselect.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/common/testdata.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/stock/create.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/stock/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/stock.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/menu.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/project/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/project/gantt.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/project/projectdetailMenu.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/stock/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/pages/nestedFull.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/avatars/avatar.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/cari.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/cari/index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/invoice/create.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/invoice/index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/invoices.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/cari/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/invoices/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layouts/left-button.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layouts/sidebar-show-project.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/project/include-categories-show.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/projectDetails/action.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/projectmanager.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/projectmanager.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/symfony2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.phpstorm.meta.php" beforeDir="false" afterPath="$PROJECT_DIR$/.phpstorm.meta.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_ide_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProjectController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProjectController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Project.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Project.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Projectdetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Projectdetail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Template.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Template.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Templatedetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Templatedetail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_10_24_141424_create_projects_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_10_24_141424_create_projects_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_10_30_093851_create_projectdetails_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_10_30_093851_create_projectdetails_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/pages/nested.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/pages/nested.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/codebase.app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/codebase.app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/frontend.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/frontend.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/pages/nestable.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/pages/nestable.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/pages/tables_datatables.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/pages/tables_datatables.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/pages/x-editable.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/pages/x-editable.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/bootstrap/_buttons.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/bootstrap/_buttons.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/custom/nested.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/custom/nested.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/stock/create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/invoices/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/stock/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/stock/index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/backend.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/backend.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/project/createOne.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/project/createOne.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/project/include-categories.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/project/include-categories.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/menu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/project/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/project/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/project/gantt.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/project/gantt.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/project/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/project/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/template/include-categories.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/template/include-categories.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/template/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/template/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/project/projectdetailMenu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/project/projectdetailMenu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/usersView/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/usersView/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
     </list>
@@ -495,15 +55,36 @@
       <executable />
     </execution>
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JavaScript File" />
         <option value="Vue Single File Component" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -620,6 +201,17 @@
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
       <path value="$PROJECT_DIR$/vendor/spatie/laravel-searchable" />
+      <path value="$PROJECT_DIR$/vendor/spatie/temporary-directory" />
+      <path value="$PROJECT_DIR$/vendor/spatie/image" />
+      <path value="$PROJECT_DIR$/vendor/spatie/laravel-medialibrary" />
+      <path value="$PROJECT_DIR$/vendor/spatie/image-optimizer" />
+      <path value="$PROJECT_DIR$/vendor/spatie/pdf-to-image" />
+      <path value="$PROJECT_DIR$/vendor/intervention/image" />
+      <path value="$PROJECT_DIR$/vendor/league/glide" />
+      <path value="$PROJECT_DIR$/vendor/myclabs/php-enum" />
+      <path value="$PROJECT_DIR$/vendor/maennchen/zipstream-php" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar" />
+      <path value="$PROJECT_DIR$/vendor/maximebf/debugbar" />
     </include_path>
   </component>
   <component name="ProjectId" id="1SxVpWFMnoWRYLDg04cFoW6im9y" />
@@ -627,7 +219,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="NewWatcherDialog.advanced.open" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.eslintrc.js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/project" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -642,12 +234,16 @@
     <property name="settings.editor.selected.configurable" value="settings.javascript.linters.eslint" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\laragon\www\projectmanager\database" />
+      <recent name="C:\laragon\www\projectmanager\resources\views" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\laragon\www\projectmanager\resources\views\project" />
+      <recent name="C:\laragon\www\projectmanager\public\uploads\avatars" />
+      <recent name="C:\laragon\www\projectmanager\public\css\pages" />
       <recent name="C:\laragon\www\projectmanager\public" />
       <recent name="C:\laragon\www\projectmanager\public\assets" />
-      <recent name="C:\laragon\www\projectmanager\database\seeds" />
-      <recent name="C:\laragon\www\projectmanager\database\factories" />
-      <recent name="C:\laragon\www\projectmanager\database\migrations" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -684,7 +280,16 @@
       <workItem from="1572939916681" duration="55000" />
       <workItem from="1572939989026" duration="20881000" />
       <workItem from="1573023204051" duration="8976000" />
-      <workItem from="1573109663006" duration="2937000" />
+      <workItem from="1573109663006" duration="3591000" />
+      <workItem from="1573113704237" duration="32445000" />
+      <workItem from="1573455565719" duration="738000" />
+      <workItem from="1573456399169" duration="20260000" />
+      <workItem from="1573542049210" duration="2613000" />
+      <workItem from="1573566962698" duration="12000" />
+      <workItem from="1573720273224" duration="764000" />
+      <workItem from="1573721066326" duration="37673000" />
+      <workItem from="1573895234098" duration="2443000" />
+      <workItem from="1574058155028" duration="12842000" />
     </task>
     <task id="LOCAL-00001" summary="Project Bitti">
       <created>1572516912473</created>
@@ -700,7 +305,21 @@
       <option name="project" value="LOCAL" />
       <updated>1572516954847</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Stok Bitti">
+      <created>1573113061702</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1573113061702</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Genel">
+      <created>1574058181332</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1574058181332</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -724,6 +343,19 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Project Bitti" />
     <MESSAGE value="User İşlemleri" />
-    <option name="LAST_COMMIT_MESSAGE" value="User İşlemleri" />
+    <MESSAGE value="Stok Bitti" />
+    <MESSAGE value="Genel" />
+    <option name="LAST_COMMIT_MESSAGE" value="Genel" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/projectDetails/action.blade.php</url>
+          <line>139</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

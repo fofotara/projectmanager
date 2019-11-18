@@ -29,7 +29,7 @@
         gantt.config.autosize ="y";
         gantt.config.autofit = true;
         gantt.config.row_height = 60;
-        gantt.config.readonly = true;
+       // gantt.config.readonly = true;
        // gantt.config.editable_property = "text";
 
         //Complet Button

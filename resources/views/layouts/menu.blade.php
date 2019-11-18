@@ -50,14 +50,36 @@
                     <a class="{{ request()->is('dashboard/stock/') ? ' active' : '' }}"
                        href="{{ action('StockController@index') }}">Stok Listesi</a>
                 </li>
+
+            </ul>
+        </li>
+
+        <li class="{{ request()->is('dashboard/cari/*') ? ' open' : '' }}">
+            <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-bulb"></i><span
+                    class="sidebar-mini-hide">Cari Hesaplar</span></a>
+            <ul>
                 <li>
-                    <a class="{{ request()->is('examples/plugin-init') ? ' active' : '' }}"
-                       href="/examples/plugin-init">Plugin with JS Init</a>
+                    <a class="{{ request()->is('dashboard/cari/') ? ' active' : '' }}"
+                       href="{{ action('CariController@index') }}">Cari Kartlar</a>
+                </li>
+
+            </ul>
+        </li>
+
+        <li class="{{ request()->is('dashboard/invoices/*') ? ' open' : '' }}">
+            <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-bulb"></i><span
+                    class="sidebar-mini-hide">Fatura</span></a>
+            <ul>
+                <li>
+                    <a class="{{ request()->is('dashboard/invoices/') ? ' active' : '' }}"
+                       href="{{ action('InvoiceController@index') }}">Fatura Listesi</a>
                 </li>
                 <li>
-                    <a class="{{ request()->is('examples/blank') ? ' active' : '' }}"
-                       href="/examples/blank">Blank</a>
+                    <a class="{{ request()->is('dashboard/invoices/create') ? ' active' : '' }}"
+                       href="{{ action('InvoiceController@create') }}">Yeni Fatura</a>
                 </li>
+
+
             </ul>
         </li>
 

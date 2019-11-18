@@ -30,6 +30,8 @@ mix
     .js('resources/js/codebase/app.js', 'public/js/codebase.app.js')
     .js('resources/js/app.js', 'public/js/laravel.app.js')
     .js('resources/js/stock.js','public/js/stock.js')
+    .js('resources/js/cari.js','public/js/cari.js')
+    .js('resources/js/invoices.js','public/js/invoices.js')
 
     // FrontEnd //
     .js('resources/js/frontend/app.js', 'public/js/frontend.js')

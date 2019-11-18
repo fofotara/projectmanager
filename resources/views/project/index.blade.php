@@ -46,6 +46,10 @@
                                                 title="Delete">
                                             <i class="fa fa-times"></i>
                                         </button>
+                                        <a href="{{ action('ProjectDetailController@main',$project) }}" type="button" class="btn btn-sm btn-success" data-toggle="tooltip"
+                                                title="View">
+                                            <i class="fa fa-camera-retro"></i>
+                                        </a>
                                     </div>
                                 </td>
                             </tr>

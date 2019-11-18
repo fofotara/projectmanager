@@ -316,9 +316,15 @@ MAIN CONTENT LAYOUT
                         <!-- END Side Overlay -->
 
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="javascript:void(0)">
-                            <i class="si si-logout mr-5"></i> Sign Out
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        >
+                            <i class="si si-logout mr-5"></i> Çıkış
                         </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
                     </div>
                 </div>
                 <!-- END User Dropdown -->

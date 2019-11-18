@@ -198,8 +198,23 @@
                                            value="{{ $project->id }}">
                                     <div class="form-group row">
                                         <div class="col-md-6">
-                                            <input name="category" class="form-control" id="category"
-                                                   type="text" placeholder="Ekle" required>
+                                            <div class="form-group">
+                                                <input name="category" class="form-control" id="category"
+                                                       type="text" placeholder="Yapılacaklar" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <input name="category" class="form-control" id="category"
+                                                       type="text" placeholder="Başlangıç Tarihi" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <input name="category" class="form-control" id="category"
+                                                       type="text" placeholder="Bitiş Tarihi" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <input name="category" class="form-control" id="category"
+                                                       type="text" placeholder="Kesin Bitiş Tarihi" required>
+                                            </div>
+
                                         </div>
                                         <div class="col-md-6">
                                             <button type="submit" class="btn btn-success"><i
@@ -225,10 +240,10 @@
                                                 </a>
 
                                             </div>
-{{--                                            <div class="pull-right">--}}
-{{--                                                <a href="{{ action('ProjectController@projectDetailsDelete', $selectT) }}"--}}
-{{--                                                   class="btn btn-sm btn-danger">Sil</a>--}}
-{{--                                            </div>--}}
+                                            {{--                                            <div class="pull-right">--}}
+                                            {{--                                                <a href="{{ action('ProjectController@projectDetailsDelete', $selectT) }}"--}}
+                                            {{--                                                   class="btn btn-sm btn-danger">Sil</a>--}}
+                                            {{--                                            </div>--}}
 
 
                                         </div>

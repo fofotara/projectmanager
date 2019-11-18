@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ 	return __webpack_require__(__webpack_require__.s = 8);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -6829,7 +6829,7 @@ __webpack_require__(/*! x-editable-bs4/dist/bootstrap4-editable/js/bootstrap-edi
 
 /***/ }),
 
-/***/ 6:
+/***/ 8:
 /*!************************************************!*\
   !*** multi ./resources/js/pages/x-editable.js ***!
   \************************************************/

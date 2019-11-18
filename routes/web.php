@@ -13,7 +13,10 @@
 
 // Example Routes
 Route::view('/', 'landing');
-
+Route::get('/kurlar/',function (){
+    $kurlar = new \App\Http\Controllers\ExchangeController();
+  return  $kurlar->getExchange();
+});
 Route::get('/data/{project}', 'GanttController@get');
 
 Route::resource('task', 'TaskController');
@@ -50,14 +53,28 @@ Route::group(['prefix' => 'dashboard'], function () {
 
     });
 
+
+
+      Route::group(['prefix' => 'invoices'], function () {
+          Route::get('/', 'InvoiceController@index');
+          Route::get('/create', 'InvoiceController@create');
+      });
     Route::group(['prefix' => 'stock'], function () {
         Route::get('/', 'StockController@index');
 
-        //STOKCS
+        //APIS
         Route::get('stocks','Apis\StockController@index');
         Route::post('create','Apis\StockController@store');
         Route::get('edit/{id}','Apis\StockController@edit');
         Route::post('filter','Apis\StockController@filter');
+    });
+
+    Route::group(['prefix' => 'current-account'], function (){
+        Route::get('/','CariController@index');
+
+        //APIS
+        Route::get('index','Apis\CurrentAccountController@index');
+        Route::post('create','Apis\CurrentAccountController@store');
     });
 
     Route::group(['prefix' => 'tax'], function () {
@@ -91,6 +108,8 @@ Route::group(['prefix' => 'dashboard'], function () {
 
         Route::group(['prefix' => '{projects}'], function ($projects) {
             Route::get('/gant', 'GanttController@index');
+            Route::get('main','ProjectDetailController@main');
+            Route::get('action/{id}','ProjectDetailController@action');
         });
     });
 
