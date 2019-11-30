@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\CurrencyCode;
 use Illuminate\Http\Request;
 
 class InvoiceController extends Controller
 {
     public function index(){
-        return view('invoices.index');
+        $currencyCodes = CurrencyCode::all();
+        return view('invoices.index', compact('currencyCodes'));
     }
 
     public function create(){
-        return view('invoices.create');
+        $currencyCodes = CurrencyCode::all();
+        return view('invoices.create', compact('currencyCodes'));
     }
 }

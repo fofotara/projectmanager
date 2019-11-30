@@ -18,9 +18,17 @@ class CreateInvoicesTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
-            $table->unsignedBigInteger('currentaccount_id');
-            $table->foreign('currentaccount_id')->references('id')->on('currentaccounts')->onDelete('cascade');
+            $table->unsignedBigInteger('currentAccount_id');
+            $table->foreign('currentAccount_id')->references('id')->on('currentaccounts')->onDelete('cascade');
 
+            $table->string('currencyCode')->nullable();
+            $table->decimal('currency',16,4)->default(0);
+
+            $table->decimal('amount',16,2)->default(0);
+            $table->decimal('discount',16,2)->default(0);
+            $table->decimal('lastAmount',16,2)->default(0);
+            $table->decimal('tax',16,2)->default(0);
+            $table->decimal('total',16,2)->default(0);
             $table->softDeletes();
             $table->timestamps();
         });

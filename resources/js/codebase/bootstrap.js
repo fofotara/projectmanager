@@ -1,4 +1,11 @@
 
+window.axios = require('axios');
+
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
+//require('./bootstrap');
+
+window.Vue = require('vue');
 
  // Import all vital core JS files..
  import jQuery from 'jquery';

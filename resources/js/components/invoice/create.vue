@@ -6,92 +6,106 @@
                 <button type="button" class="btn btn-sm btn-square btn-primary min-width-125 mb-10"
                         v-on:click="createNewInvoiceModal()"
                 >
-                    <i class="fa fa-plus-circle"></i> Yeni Stok Kartı
+                    <i class="fa fa-plus-circle"></i> Yeni Fatura
                 </button>
             </div>
         </div>
         <div class="block-content">
 
 
-            <!-- From Left Modal -->
-            <div class="modal fade show" id="modal-createInvoice" tabindex="-1" role="dialog"
-                 aria-hidden="true">
-                <div class="modal-dialog modal-lg" role="document">
-                    <div class="modal-content">
-                        <form method="post" >
-                            <div class="block block-themed block-transparent mb-0">
-                                <div class="block-header bg-primary-dark">
-                                    <h3 class="block-title" id="nestedName">Yeni Cari Kart</h3>
-                                    <div class="block-options">
-                                        <button type="button" class="btn-block-option" data-dismiss="modal"
-                                                aria-label="Close">
-                                            <i class="si si-close"></i>
-                                        </button>
-                                    </div>
-                                </div>
+            <div class="form-group row">
 
-                                <div class="block-content">
+                <div class="col-md-6">
+                    <label class="col-12">Firma Adı</label>
+                    <autocomplete v-model="invoice.companyId"
+                                  placeholder="Firma Adını Yazın"
+                                  input-class="js-select2 form-control"
+                                  :source="accounts"
+                                  results-property="id"
+                                  results-display="company">
+                    </autocomplete>
 
-                                    <span v-if="errors.length">
-                                        <b>Bu Hataları gözden geçirin :</b>
-                                    <ul>
-                                        <li v-for="error in errors" :key="error">{{ error }}</li>
-                                    </ul>
-                                    </span>
+                </div>
+                <div class="col-md-6">
+                    <vuejsDatepicker v-model="invoice.dateTime" input-class="form-control"
+                                     :format="customFormatter" :language="tr"></vuejsDatepicker>
+                </div>
 
-                                    <div class="row form-group">
-                                        <div class="col-md-6">
-                                            <label for="code">Kodu</label>
-                                            <input type="text"  id="code" class="form-control">
-                                        </div>
-                                    </div>
-
-
-                                </div>
-
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-alt-secondary" data-dismiss="modal">Kapat</button>
-                                <button type="submit" class="btn btn-alt-success">
-                                    <i class="fa fa-check"></i> Kaydet
-                                </button>
-                            </div>
-                        </form>
-                    </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-6">
+                    <label for="code">Kodu</label>
+                    <input type="text" id="code" class="form-control">
                 </div>
             </div>
-            <!-- END From Left Modal -->
+
         </div>
     </div>
 </template>
 
 <script>
 
-    // $(document).ready(function () {
-    //     jQuery('#modal-createInvoice').modal('show');
-    // });
-    //jQuery(function(){ Codebase.helpers(['flatpickr', 'datepicker', 'colorpicker', 'maxlength', 'select2']); });
+    $(document).ready(function () {
+        jQuery('#modal-createInvoice').modal('show');
+
+        console.log("Open Modal.");
+    });
+
+    import Autocomplete from 'vuejs-auto-complete'
+    import vuejsDatepicker from 'vuejs-datepicker';
+    import tr from 'vuejs-datepicker/dist/locale/translations/tr'
+    import moment from 'vue-moment';
+
+
+
     export default {
+        components: {
+            Autocomplete,
+            vuejsDatepicker
+        },
+
         name: "create",
+
         data() {
             return {
+                tr: tr,
+                customFormatter(date) {
+                    return moment(date).format('MM D YYYY');
+                    },
+                invoice: {
+                    companyId: '',
+                    dateTime: ''
+                },
                 errors: [],
+                accounts: [],
+
 
             };
         },
-        ready(){
+        ready() {
 
         },
         created() {
             console.log("Component mounted.");
-            this.createNewInvoiceModal.call();
+            this.getCurrentAccount();
+
         },
-        methods:{
-            createNewInvoiceModal(){
-                console.log("Open Modal.");
+        methods: {
+
+            getCurrentAccount() {
+                axios
+                    .get('/dashboard/getCurrentAccount')
+                    .then(response => {
+                        console.log(response.data);
+                        this.accounts = response.data;
+                    })
+            },
+            createNewInvoiceModal() {
                 jQuery('#modal-createInvoice').modal('show');
             }
+
         }
+
     }
 </script>
 

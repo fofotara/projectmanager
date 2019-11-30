@@ -63,17 +63,17 @@ class CurrentAccountController extends Controller
                     'taxname' => $request->get('taxname'),
                     'telephone' => $request->get('telephone'),
                     'user'=> $request->get('user'),
-                    'address' => $request->get('address')
+                    'address' => str_replace(array("\n", "\r\n"), "<br>", $request->get('address'))
                 ]);
 
             return response()->json([
                 'data' => $account,
                 'message' => 'Success'
-            ]);
+            ],200);
         } catch (\Exception $exception) {
             return response()->json([
                     'message' => $exception
-                ]
+                ],401
 
             );
         }

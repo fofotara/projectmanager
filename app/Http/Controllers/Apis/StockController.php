@@ -11,6 +11,13 @@ use Spatie\Searchable\Search;
 class StockController extends Controller
 {
     static $perPage = 15;
+    public function getCurrentStock(Request $request)
+    {
+
+        $search = $request->get('term');
+        $data = Stock::where('name', 'LIKE', '%' . $search . '%')->get();
+        return response()->json($data);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -114,17 +121,6 @@ class StockController extends Controller
 
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.

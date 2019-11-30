@@ -13,9 +13,14 @@ use Illuminate\Http\Request;
 class ExchangeController extends Controller
 {
     // https://www.tcmb.gov.tr/kurlar/201801/30012018.xml
-    function __construct()
+    private $date;
+
+     function __construct($date = null)
     {
 
+        if ($date == null){
+            $url = 'http://www.tcmb.gov.tr/kurlar/today.xml';
+        }
         $currentDate = Carbon::now()->format('Y-m-d');
 
         $result = Currency::where('date', $currentDate)->get();
@@ -23,7 +28,7 @@ class ExchangeController extends Controller
         dump($result->count());
 
         if ($result->count() == 0) {
-            $url = 'http://www.tcmb.gov.tr/kurlar/today.xml';
+
 
             $agent = "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36";
             $ch = curl_init();
@@ -60,9 +65,11 @@ class ExchangeController extends Controller
                 ]
             );
         }
+        $this->url = $url;
+        $this->date = $date;
     }
 
-    public function getExchange()
+    public function getExchange($date = null)
     {
 
         return $currentDate = Carbon::now()->format('d-m-Y');
