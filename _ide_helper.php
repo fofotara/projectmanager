@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 6.5.1 on 2019-11-18 06:46:39.
+ * Generated for Laravel 6.6.0 on 2019-11-29 07:42:33.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -8922,7 +8922,7 @@ namespace Illuminate\Support\Facades {
          * 
          * You should only list the reverse proxies that you manage directly.
          *
-         * @param array $proxies A list of trusted proxies
+         * @param array $proxies A list of trusted proxies, the string 'REMOTE_ADDR' will be replaced with $_SERVER['REMOTE_ADDR']
          * @param int $trustedHeaderSet A bit field of Request::HEADER_*, to set which headers to trust from your proxies
          * @throws \InvalidArgumentException When $trustedHeaderSet is invalid
          * @static 
@@ -9062,9 +9062,8 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * Sets the Session.
+         * 
          *
-         * @param \Symfony\Component\HttpFoundation\SessionInterface $session The Session
          * @static 
          */ 
         public static function setSession($session)
@@ -9539,6 +9538,7 @@ namespace Illuminate\Support\Facades {
          *  * _format request attribute
          *  * $default
          *
+         * @see getPreferredFormat
          * @param string|null $default The default format
          * @return string|null The request format
          * @static 
@@ -9744,9 +9744,24 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
+         * Gets the preferred format for the response by inspecting, in the following order:
+         *   * the request format set using setRequestFormat
+         *   * the values of the Accept HTTP header
+         *   * the content type of the body of the request.
+         *
+         * @static 
+         */ 
+        public static function getPreferredFormat($default = 'html')
+        {
+            //Method inherited from \Symfony\Component\HttpFoundation\Request            
+                        /** @var \Illuminate\Http\Request $instance */
+                        return $instance->getPreferredFormat($default);
+        }
+        
+        /**
          * Returns the preferred language.
          *
-         * @param array $locales An array of ordered available locales
+         * @param string[] $locales An array of ordered available locales
          * @return string|null The preferred locale
          * @static 
          */ 
@@ -10420,7 +10435,7 @@ namespace Illuminate\Support\Facades {
         /**
          * Create a new response for a given view.
          *
-         * @param string $view
+         * @param string|array $view
          * @param array $data
          * @param int $status
          * @param array $headers
@@ -10661,6 +10676,20 @@ namespace Illuminate\Support\Facades {
      * @see \Illuminate\Routing\Router
      */ 
     class Route {
+        
+        /**
+         * Register a new HEAD route with the router.
+         *
+         * @param string $uri
+         * @param \Closure|array|string|callable|null $action
+         * @return \Illuminate\Routing\Route 
+         * @static 
+         */ 
+        public static function head($uri, $action = null)
+        {
+                        /** @var \Illuminate\Routing\Router $instance */
+                        return $instance->head($uri, $action);
+        }
         
         /**
          * Register a new GET route with the router.
@@ -15346,10 +15375,32 @@ namespace Facade\Ignition\Facades {
          *
          * @static 
          */ 
+        public static function registerFlareHandlers()
+        {
+                        /** @var \Facade\FlareClient\Flare $instance */
+                        return $instance->registerFlareHandlers();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
         public static function registerExceptionHandler()
         {
                         /** @var \Facade\FlareClient\Flare $instance */
                         return $instance->registerExceptionHandler();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function registerErrorHandler()
+        {
+                        /** @var \Facade\FlareClient\Flare $instance */
+                        return $instance->registerErrorHandler();
         }
         
         /**
@@ -15394,6 +15445,17 @@ namespace Facade\Ignition\Facades {
         {
                         /** @var \Facade\FlareClient\Flare $instance */
                         return $instance->handleException($throwable);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function handleError($code, $message, $file = '', $line = 0)
+        {
+                        /** @var \Facade\FlareClient\Flare $instance */
+                        return $instance->handleError($code, $message, $file, $line);
         }
         
         /**
@@ -15606,6 +15668,109 @@ namespace Intervention\Image\Facades {
         {
                         /** @var \Intervention\Image\ImageManager $instance */
                         return $instance->cache($callback, $lifetime, $returnObj);
+        }
+         
+    }
+ 
+}
+
+namespace Oriceon\Settings\Facades { 
+
+    /**
+     * 
+     *
+     */ 
+    class Settings {
+        
+        /**
+         * Store value into registry
+         *
+         * @param string $key
+         * @param mixed $value
+         * @return mixed 
+         * @static 
+         */ 
+        public static function set($key, $value)
+        {
+                        /** @var \Oriceon\Settings\Repositories\DatabaseRepository $instance */
+                        return $instance->set($key, $value);
+        }
+        
+        /**
+         * Gets a value
+         *
+         * @param string $key
+         * @param string $default
+         * @return mixed 
+         * @static 
+         */ 
+        public static function get($key, $default = null)
+        {
+                        /** @var \Oriceon\Settings\Repositories\DatabaseRepository $instance */
+                        return $instance->get($key, $default);
+        }
+        
+        /**
+         * Fetch all values
+         *
+         * @param $cache
+         * @return mixed 
+         * @static 
+         */ 
+        public static function getAll($cache = true)
+        {
+                        /** @var \Oriceon\Settings\Repositories\DatabaseRepository $instance */
+                        return $instance->getAll($cache);
+        }
+        
+        /**
+         * Checks if setting exists
+         *
+         * @param $key
+         * @return bool 
+         * @static 
+         */ 
+        public static function has($key)
+        {
+                        /** @var \Oriceon\Settings\Repositories\DatabaseRepository $instance */
+                        return $instance->has($key);
+        }
+        
+        /**
+         * Remove a settings from database and cache file
+         *
+         * @param string $key
+         * @return void 
+         * @static 
+         */ 
+        public static function forget($key)
+        {
+                        /** @var \Oriceon\Settings\Repositories\DatabaseRepository $instance */
+                        $instance->forget($key);
+        }
+        
+        /**
+         * Cleans settings that are no longer used in primary config file
+         *
+         * @param $params
+         * @static 
+         */ 
+        public static function clean($params = array())
+        {
+                        /** @var \Oriceon\Settings\Repositories\DatabaseRepository $instance */
+                        return $instance->clean($params);
+        }
+        
+        /**
+         * Remove all settings
+         *
+         * @return bool 
+         * @static 
+         */ 
+        public static function flush()
+        {
+                        /** @var \Oriceon\Settings\Repositories\DatabaseRepository $instance */
+                        return $instance->flush();
         }
          
     }
@@ -18479,6 +18644,8 @@ namespace  {
     class Flare extends \Facade\Ignition\Facades\Flare {}
 
     class Image extends \Intervention\Image\Facades\Image {}
+
+    class Settings extends \Oriceon\Settings\Facades\Settings {}
  
 }
 

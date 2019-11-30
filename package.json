@@ -16,9 +16,9 @@
         "cross-env": "^6.0",
         "laravel-mix": "^5.0.0",
         "lodash": "^4.17.15",
-        "prettier": "1.18.2",
-        "resolve-url-loader": "^3.1.0",
-        "sass": "^1.23.3",
+        "prettier": "1.19.1",
+        "resolve-url-loader": "^3.1.1",
+        "sass": "^1.23.7",
         "sass-loader": "^8.0.0",
         "vue": "^2.6.10",
         "vue-template-compiler": "^2.6.10"
@@ -34,7 +34,10 @@
         "nestable2": "^1.6.0",
         "npm-check-updates": "^3.2.1",
         "popper.js": "^1.16.0",
-        "simplebar": "^5.0.6",
+        "simplebar": "^5.0.7",
+        "vue-moment": "^4.0.0",
+        "vuejs-auto-complete": "^0.9.0",
+        "vuejs-datepicker": "^1.6.2",
         "x-editable-bs4": "^1.5.4"
     }
 }

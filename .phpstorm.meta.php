@@ -5,7 +5,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2019-11-18 06:46:39.
+    * Generated on 2019-11-29 07:42:33.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -170,6 +170,7 @@ namespace PHPSTORM_META {
         'router' => \Illuminate\Routing\Router::class,
         'session' => \Illuminate\Session\SessionManager::class,
         'session.store' => \Illuminate\Session\Store::class,
+        'settings' => \Oriceon\Settings\Repositories\DatabaseRepository::class,
         'swift.mailer' => \Swift_Mailer::class,
         'swift.transport' => \Illuminate\Mail\TransportManager::class,
         'translation.loader' => \Illuminate\Translation\FileLoader::class,
@@ -340,6 +341,7 @@ namespace PHPSTORM_META {
         'router' => \Illuminate\Routing\Router::class,
         'session' => \Illuminate\Session\SessionManager::class,
         'session.store' => \Illuminate\Session\Store::class,
+        'settings' => \Oriceon\Settings\Repositories\DatabaseRepository::class,
         'swift.mailer' => \Swift_Mailer::class,
         'swift.transport' => \Illuminate\Mail\TransportManager::class,
         'translation.loader' => \Illuminate\Translation\FileLoader::class,
@@ -510,6 +512,7 @@ namespace PHPSTORM_META {
         'router' => \Illuminate\Routing\Router::class,
         'session' => \Illuminate\Session\SessionManager::class,
         'session.store' => \Illuminate\Session\Store::class,
+        'settings' => \Oriceon\Settings\Repositories\DatabaseRepository::class,
         'swift.mailer' => \Swift_Mailer::class,
         'swift.transport' => \Illuminate\Mail\TransportManager::class,
         'translation.loader' => \Illuminate\Translation\FileLoader::class,
@@ -680,6 +683,7 @@ namespace PHPSTORM_META {
         'router' => \Illuminate\Routing\Router::class,
         'session' => \Illuminate\Session\SessionManager::class,
         'session.store' => \Illuminate\Session\Store::class,
+        'settings' => \Oriceon\Settings\Repositories\DatabaseRepository::class,
         'swift.mailer' => \Swift_Mailer::class,
         'swift.transport' => \Illuminate\Mail\TransportManager::class,
         'translation.loader' => \Illuminate\Translation\FileLoader::class,
@@ -850,6 +854,7 @@ namespace PHPSTORM_META {
         'router' => \Illuminate\Routing\Router::class,
         'session' => \Illuminate\Session\SessionManager::class,
         'session.store' => \Illuminate\Session\Store::class,
+        'settings' => \Oriceon\Settings\Repositories\DatabaseRepository::class,
         'swift.mailer' => \Swift_Mailer::class,
         'swift.transport' => \Illuminate\Mail\TransportManager::class,
         'translation.loader' => \Illuminate\Translation\FileLoader::class,
@@ -1020,6 +1025,7 @@ namespace PHPSTORM_META {
         'router' => \Illuminate\Routing\Router::class,
         'session' => \Illuminate\Session\SessionManager::class,
         'session.store' => \Illuminate\Session\Store::class,
+        'settings' => \Oriceon\Settings\Repositories\DatabaseRepository::class,
         'swift.mailer' => \Swift_Mailer::class,
         'swift.transport' => \Illuminate\Mail\TransportManager::class,
         'translation.loader' => \Illuminate\Translation\FileLoader::class,
@@ -1190,6 +1196,7 @@ namespace PHPSTORM_META {
         'router' => \Illuminate\Routing\Router::class,
         'session' => \Illuminate\Session\SessionManager::class,
         'session.store' => \Illuminate\Session\Store::class,
+        'settings' => \Oriceon\Settings\Repositories\DatabaseRepository::class,
         'swift.mailer' => \Swift_Mailer::class,
         'swift.transport' => \Illuminate\Mail\TransportManager::class,
         'translation.loader' => \Illuminate\Translation\FileLoader::class,
@@ -1360,6 +1367,7 @@ namespace PHPSTORM_META {
         'router' => \Illuminate\Routing\Router::class,
         'session' => \Illuminate\Session\SessionManager::class,
         'session.store' => \Illuminate\Session\Store::class,
+        'settings' => \Oriceon\Settings\Repositories\DatabaseRepository::class,
         'swift.mailer' => \Swift_Mailer::class,
         'swift.transport' => \Illuminate\Mail\TransportManager::class,
         'translation.loader' => \Illuminate\Translation\FileLoader::class,
