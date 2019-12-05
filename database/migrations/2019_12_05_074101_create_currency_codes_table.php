@@ -15,6 +15,7 @@ class CreateCurrencyCodesTable extends Migration
     {
         Schema::create('currency_codes', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('code');
             $table->timestamps();
         });
     }

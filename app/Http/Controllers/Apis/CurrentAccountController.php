@@ -49,9 +49,7 @@ class CurrentAccountController extends Controller
     }
     public function store(Request $request)
     {
-
-
-        try {
+       try {
             $account = Currentaccount::updateOrCreate([
                 'id' => $request->get('id')
             ],
@@ -70,6 +68,7 @@ class CurrentAccountController extends Controller
                 'data' => $account,
                 'message' => 'Success'
             ],200);
+
         } catch (\Exception $exception) {
             return response()->json([
                     'message' => $exception
@@ -77,7 +76,5 @@ class CurrentAccountController extends Controller
 
             );
         }
-
-
     }
 }
