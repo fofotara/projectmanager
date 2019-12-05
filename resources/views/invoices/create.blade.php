@@ -153,8 +153,24 @@
                         <tr id='addr0'>
                             <td>1</td>
                             <td>
-                                <input type="text" name='product[]' placeholder='ürün Adı Girin'
-                                       class="form-control form-control-sm productAutoComplet"/>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <button type="button" class="btn btn-sm btn-secondary currentInvoiceType">S</button>
+                                        <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                                        <div class="dropdown-menu invoiceType">
+                                            <a class="dropdown-item" href="javascript:void(0)" data-text="S">
+                                                <i class="fa fa-fw fa-archive mr-5"></i>Stok
+                                            </a>
+                                            <a class="dropdown-item" href="javascript:void(0)" data-text="H">
+                                                <i class="fa fa-fw fa-tasks mr-5"></i>Hizmet
+                                            </a>
+
+                                        </div>
+                                    </div>
+                                    <input type="text" name='product[]' placeholder='ürün Adı Girin'
+                                           class="form-control form-control-sm productAutoComplet"/>
+                                </div>
+
                             </td>
                             <td>
                                 <input type="number" name='qty[]' placeholder='Adet' class="form-control form-control-sm qty"
@@ -447,6 +463,11 @@
             let currency;
             let currencyCode;
             let invoiceId;
+            let stockType ='S';
+            let H = parseInt("{{ Setting::get('invoice.ServiceTax') }}");
+
+            //
+          //  Invoice TYPE
 
             //Invoice Action
             let i = 1;
@@ -494,6 +515,14 @@
             });
 
             $('body')
+                .on('click','.invoiceType a', function (event) {
+
+                    stockType = $(this).data('text');
+                   // ney = $(this).parent().parent().parent().parent().parent().attr('id');
+                   $(this).parent().parent().parent().parent().siblings(3).find('.taxValues').text(H);
+                   ney = $(this).parent(); // currentInvoiceType
+                    console.log(ney);
+                })
                 .on('focus', '.productAutoComplet', function () {
                     $(this).autocomplete({
                         source: function (request, response) {
@@ -504,12 +533,12 @@
                                 },
                                 dataType: "json",
                                 success: function (data) {
-                                  //  console.log(data);
+                                   console.log(data);
                                     var resp = $.map(data, function (obj) {
                                         return {
                                             label: obj.name,
                                             value: obj.id,
-                                            tax:obj.tax
+                                            tax:parseInt(obj.tax)
                                         }
                                     });
 
@@ -520,7 +549,7 @@
 
                         }, select: function (event, ui) {
                             $(this).val(ui.item.label);
-                            $(this).parent().siblings().eq(3).children('.input-group').find('button').text(ui.item.tax);
+                            $(this).parent().parent().siblings().eq(3).children('.input-group').find('button').text(ui.item.tax);
 
                             return false;
                         },
@@ -528,7 +557,7 @@
                     });
                 })
                 .on('change','#currencyCodeChange', function () {
-                    var code = this.value
+                    var code = this.value;
                     var date = $('#invoiceDate').val();
                     alert(date);
                 });
@@ -546,7 +575,7 @@
                         },
                         dataType: "json",
                         success: function (data) {
-                            console.log(data);
+                           // console.log(data);
                             var resp = $.map(data, function (obj) {
                                 return {
                                     label: obj.company,

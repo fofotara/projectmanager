@@ -14,6 +14,12 @@
                     class="sidebar-mini-hide">Ayarlar</span></a>
             <ul>
                 <li>
+                    <a class="{{ request()->is('dashboard/settings/invoice') ? 'active' : '' }}"
+                       href="{{action('SettingController@SettingInvoice')}}">
+                        Fatura Ayarları
+                    </a>
+                </li>
+                <li>
                     <a class="{{ request()->is('dashboard/settings/users') ? 'active' : '' }}"
                        href="{{action('UserController@index')}}">
                         Kullanıcılar

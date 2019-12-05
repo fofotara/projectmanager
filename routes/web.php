@@ -33,6 +33,11 @@ Route::group(['middleware' => ['auth']], function () {
 
 
         Route::group(['prefix' => 'settings'], function () {
+            Route::group(['prefix' => 'invoice'], function () {
+                //Invoice Setting
+                Route::get('/','SettingController@SettingInvoice');
+                Route::post('/save','SettingController@SettingInvoiceSave');
+            });
             Route::group(['prefix' => 'users'], function () {
                 Route::get('/', 'UserController@index');
                 Route::get('/create', 'UserController@create');

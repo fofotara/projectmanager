@@ -5,7 +5,7 @@
 /vendor
 .env
 .env.example
-.idea
+.idea/*
 .env.backup
 .phpunit.result.cache
 Homestead.json
@@ -13,3 +13,4 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 tests/*
+/.idea/
