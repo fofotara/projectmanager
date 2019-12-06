@@ -1,49 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="84b7f38a-0282-40bd-812d-ecba0a510951" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/css/pages/nestedFull.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/avatars/avatar.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/cari.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/cari/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/invoice/create.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/invoice/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/invoices.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/cari/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/invoices/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/left-button.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/sidebar-show-project.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/project/include-categories-show.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/projectDetails/action.blade.php" afterDir="false" />
+    <list default="true" id="84b7f38a-0282-40bd-812d-ecba0a510951" name="Default Changelist" comment="STOK DÜZELTMESİ">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/projectmanager.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/projectmanager.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/symfony2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.phpstorm.meta.php" beforeDir="false" afterPath="$PROJECT_DIR$/.phpstorm.meta.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_ide_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/codebase.app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/codebase.app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/frontend.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/frontend.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/pages/nestable.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/pages/nestable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/pages/tables_datatables.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/pages/tables_datatables.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/pages/x-editable.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/pages/x-editable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/stock/create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/invoices/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/stock/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/stock/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/backend.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/backend.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/menu.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/project/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/project/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/project/gantt.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/project/gantt.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/project/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/project/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/project/projectdetailMenu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/project/projectdetailMenu.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/usersView/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/usersView/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/InvoiceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/InvoiceController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/invoices/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/invoices/create.blade.php" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -78,6 +43,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="PC-GITTI" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="JsFlowSettings">
@@ -212,12 +182,21 @@
       <path value="$PROJECT_DIR$/vendor/maennchen/zipstream-php" />
       <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar" />
       <path value="$PROJECT_DIR$/vendor/maximebf/debugbar" />
+      <path value="$PROJECT_DIR$/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/vendor/oriceon/laravel-settings" />
+      <path value="$PROJECT_DIR$/vendor/unisharp/laravel-settings" />
     </include_path>
   </component>
   <component name="ProjectId" id="1SxVpWFMnoWRYLDg04cFoW6im9y" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="NewWatcherDialog.advanced.open" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/project" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -231,13 +210,9 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\laragon\www\projectmanager\node_modules\prettier" />
-    <property name="settings.editor.selected.configurable" value="settings.javascript.linters.eslint" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\laragon\www\projectmanager\database" />
-      <recent name="C:\laragon\www\projectmanager\resources\views" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\laragon\www\projectmanager\resources\views\project" />
       <recent name="C:\laragon\www\projectmanager\public\uploads\avatars" />
@@ -245,24 +220,30 @@
       <recent name="C:\laragon\www\projectmanager\public" />
       <recent name="C:\laragon\www\projectmanager\public\assets" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/database/migrations" />
+      <recent name="$PROJECT_DIR$/database" />
+      <recent name="C:\laragon\www\projectmanager\database" />
+      <recent name="C:\laragon\www\projectmanager\resources\views" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration>C:\Users\bitenta\AppData\Roaming\Subversion</configuration>
@@ -290,6 +271,10 @@
       <workItem from="1573721066326" duration="37673000" />
       <workItem from="1573895234098" duration="2443000" />
       <workItem from="1574058155028" duration="12842000" />
+      <workItem from="1575470044909" duration="1345000" />
+      <workItem from="1575472881473" duration="6842000" />
+      <workItem from="1575541725366" duration="7088000" />
+      <workItem from="1575551248385" duration="7445000" />
     </task>
     <task id="LOCAL-00001" summary="Project Bitti">
       <created>1572516912473</created>
@@ -319,7 +304,42 @@
       <option name="project" value="LOCAL" />
       <updated>1574058181332</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Currency Code Eklendi">
+      <created>1575532268328</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1575532268328</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Currency Code Eklendi">
+      <created>1575532390595</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1575532390595</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Currency Code Eklendi">
+      <created>1575532537183</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1575532537183</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Düzeltmeler">
+      <created>1575534232738</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1575534232738</updated>
+    </task>
+    <task id="LOCAL-00009" summary="STOK DÜZELTMESİ">
+      <created>1575550960376</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1575550960376</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -345,7 +365,60 @@
     <MESSAGE value="User İşlemleri" />
     <MESSAGE value="Stok Bitti" />
     <MESSAGE value="Genel" />
-    <option name="LAST_COMMIT_MESSAGE" value="Genel" />
+    <MESSAGE value="Currency Code Eklendi" />
+    <MESSAGE value="Düzeltmeler" />
+    <MESSAGE value="STOK DÜZELTMESİ" />
+    <option name="LAST_COMMIT_MESSAGE" value="STOK DÜZELTMESİ" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="518" y="256" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1575550970627">
+      <screen x="0" y="23" width="1680" height="954" />
+    </state>
+    <state x="518" y="256" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/1680.23.1920.1057/0.23.1680.954@0.23.1680.954" timestamp="1575550970627" />
+    <state x="376" y="89" key="CommitChangelistDialog2" timestamp="1575621855878">
+      <screen x="0" y="23" width="1680" height="952" />
+    </state>
+    <state x="376" y="89" key="CommitChangelistDialog2/1680.23.1920.1057/0.23.1680.949@0.23.1680.949" timestamp="1575534232615" />
+    <state x="376" y="89" key="CommitChangelistDialog2/1680.23.1920.1057/0.23.1680.952@0.23.1680.952" timestamp="1575621855878" />
+    <state x="376" y="89" key="CommitChangelistDialog2/1680.23.1920.1057/0.23.1680.954@0.23.1680.954" timestamp="1575550960023" />
+    <state width="720" height="241" key="GridCell.Tab.0.bottom" timestamp="1575551235223">
+      <screen x="0" y="23" width="1680" height="954" />
+    </state>
+    <state width="720" height="241" key="GridCell.Tab.0.bottom/1680.23.1920.1057/0.23.1680.954@0.23.1680.954" timestamp="1575551235223" />
+    <state width="720" height="241" key="GridCell.Tab.0.center" timestamp="1575551235223">
+      <screen x="0" y="23" width="1680" height="954" />
+    </state>
+    <state width="720" height="241" key="GridCell.Tab.0.center/1680.23.1920.1057/0.23.1680.954@0.23.1680.954" timestamp="1575551235223" />
+    <state width="720" height="241" key="GridCell.Tab.0.left" timestamp="1575551235222">
+      <screen x="0" y="23" width="1680" height="954" />
+    </state>
+    <state width="720" height="241" key="GridCell.Tab.0.left/1680.23.1920.1057/0.23.1680.954@0.23.1680.954" timestamp="1575551235222" />
+    <state width="720" height="241" key="GridCell.Tab.0.right" timestamp="1575551235223">
+      <screen x="0" y="23" width="1680" height="954" />
+    </state>
+    <state width="720" height="241" key="GridCell.Tab.0.right/1680.23.1920.1057/0.23.1680.954@0.23.1680.954" timestamp="1575551235223" />
+    <state x="284" y="129" key="SettingsEditor" timestamp="1575541716191">
+      <screen x="0" y="23" width="1680" height="954" />
+    </state>
+    <state x="284" y="129" key="SettingsEditor/1680.23.1920.1057/0.23.1680.954@0.23.1680.954" timestamp="1575541716191" />
+    <state x="399" y="224" key="Vcs.Push.Dialog.v2" timestamp="1575550991841">
+      <screen x="0" y="23" width="1680" height="954" />
+    </state>
+    <state x="399" y="224" key="Vcs.Push.Dialog.v2/1680.23.1920.1057/0.23.1680.952@0.23.1680.952" timestamp="1575532552112" />
+    <state x="399" y="224" key="Vcs.Push.Dialog.v2/1680.23.1920.1057/0.23.1680.954@0.23.1680.954" timestamp="1575550991841" />
+    <state x="494" y="333" key="com.intellij.ide.util.TipDialog" timestamp="1575551251574">
+      <screen x="0" y="23" width="1680" height="954" />
+    </state>
+    <state x="494" y="331" key="com.intellij.ide.util.TipDialog/1680.23.1920.1057/0.23.1680.949@0.23.1680.949" timestamp="1575472899285" />
+    <state x="494" y="333" key="com.intellij.ide.util.TipDialog/1680.23.1920.1057/0.23.1680.954@0.23.1680.954" timestamp="1575551251574" />
+    <state x="0" y="23" width="1273" height="603" key="dock-window-1" timestamp="1575621170284">
+      <screen x="0" y="23" width="1680" height="949" />
+    </state>
+    <state x="0" y="23" width="1273" height="603" key="dock-window-1/1680.23.1920.1057/0.23.1680.949@0.23.1680.949" timestamp="1575621170284" />
+    <state x="488" y="164" width="965" height="714" key="find.popup" timestamp="1575546510397">
+      <screen x="0" y="23" width="1680" height="954" />
+    </state>
+    <state x="488" y="164" width="965" height="714" key="find.popup/1680.23.1920.1057/0.23.1680.954@0.23.1680.954" timestamp="1575546510397" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

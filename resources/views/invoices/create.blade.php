@@ -79,7 +79,7 @@
         </form>
     </div>
     <!-- -->
-    <div class="content">
+    <div class="content" id="content">
         <!-- Invoice -->
 
         <div class="block">
@@ -155,8 +155,12 @@
                             <td>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
-                                        <button type="button" class="btn btn-sm btn-secondary currentInvoiceType">S</button>
-                                        <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                                        <button type="button" class="btn btn-sm btn-secondary currentInvoiceType">S
+                                        </button>
+                                        <button type="button"
+                                                class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split"
+                                                data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false"></button>
                                         <div class="dropdown-menu invoiceType">
                                             <a class="dropdown-item" href="javascript:void(0)" data-text="S">
                                                 <i class="fa fa-fw fa-archive mr-5"></i>Stok
@@ -169,11 +173,18 @@
                                     </div>
                                     <input type="text" name='product[]' placeholder='ürün Adı Girin'
                                            class="form-control form-control-sm productAutoComplet"/>
+                                    <div class="input-group-append">
+                                        <button type="button" class="btn btn-sm btn-secondary newStock">
+                                            <i class="fa fa-plus"></i>
+                                        </button>
+                                    </div>
+                                    <input type="hidden" name='productId[]' class="productId"/>
                                 </div>
 
                             </td>
                             <td>
-                                <input type="number" name='qty[]' placeholder='Adet' class="form-control form-control-sm qty"
+                                <input type="number" name='qty[]' placeholder='Adet'
+                                       class="form-control form-control-sm qty"
                                        step="0" min="0"/>
                             </td>
 
@@ -183,8 +194,9 @@
                             </td>
                             <td>
                                 <div class="input-group">
-                                    <input type="number" name='tax[]' placeholder='KDV' class="form-control form-control-sm tax"
-                                           step="0.00" min="0" readonly />
+                                    <input type="number" name='tax[]' placeholder='KDV'
+                                           class="form-control form-control-sm tax"
+                                           step="0.00" min="0" readonly/>
                                     <div class="input-group-append">
                                         <button class="btn btn-sm btn-secondary taxValues" name="taxValue[]"></button>
                                     </div>
@@ -192,11 +204,13 @@
 
                             </td>
                             <td>
-                                <input type="number" name='total[]' placeholder='0.00' class="form-control form-control-sm total"
+                                <input type="number" name='total[]' placeholder='0.00'
+                                       class="form-control form-control-sm total"
                                        readonly/>
                             </td>
                             <td>
-                                <input type="number" name='discountTotal[]' placeholder='0.00' class="form-control form-control-sm discountTotal"
+                                <input type="number" name='discountTotal[]' placeholder='0.00'
+                                       class="form-control form-control-sm discountTotal"
                                        readonly/>
                             </td>
 
@@ -246,10 +260,11 @@
                             <th class="text-center">KDV</th>
                             <td class="text-center">
                                 <div class="input-group">
-                                    <input type="number" step="0.00" class="form-control" id="total_tax" name="total_tax"
-                                         readonly  placeholder="0">
+                                    <input type="number" step="0.00" class="form-control" id="total_tax"
+                                           name="total_tax"
+                                           readonly placeholder="0">
                                     <div class="input-group-append">
-                                        <button class="btn btn-secondary">  %</button>
+                                        <button class="btn btn-secondary"> %</button>
                                     </div>
                                 </div>
                             </td>
@@ -381,6 +396,71 @@
             </div>
         </div>
         <!-- END From Left Modal -->
+        <!-- From Left Modal -->
+        <div class="modal fade" id="modal-createStock" tabindex="-1" role="dialog" aria-labelledby="modal-fromleft"
+             data-keyboard="false" data-backdrop="static"
+             aria-hidden="true">
+            <div class="modal-dialog " role="document">
+                <div class="modal-content">
+                    <form id="newStockForm" class="form-horizontal" action="{{ action('Apis\StockController@store') }}"
+                          method="post">
+                        <div class="block block-themed block-transparent mb-0">
+                            <div class="block-header bg-primary-dark">
+                                <h3 class="block-title" id="nestedName">Yeni Stok Kartı</h3>
+                                <div class="block-options">
+                                    <button type="button" class="btn-block-option" data-dismiss="modal"
+                                            aria-label="Close">
+                                        <i class="si si-close"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="block-content">
+
+
+                                <div class="row form-group">
+                                    <div class="col-md-6">
+                                        <label for="code">Kodu</label>
+                                        <input type="text" name="code" id="code" class="form-control">
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="name">Adı</label>
+                                    <input type="text" name="name" id="name" class="form-control">
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-md-6">
+                                        <label for="unit">Tipi</label>
+                                        <select name="unit" id="unit" class="form-control">
+                                            @foreach($units as $unit)
+                                                <option value="{{$unit->name}}">{{ $unit->name }}</option>
+                                            @endforeach
+
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="tax">Kdv Oranı</label>
+                                        <select name="tax" id="tax" class="form-control">
+                                            @foreach($taxs as $tax)
+                                                <option value="{{$tax->value}}">{{ $tax->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-alt-secondary" data-dismiss="modal">Kapat</button>
+                            <button type="submit" class="btn btn-alt-success">
+                                <i class="fa fa-check"></i> Kaydet
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- END From Left Modal -->
     </div>
 @stop
 @section('css_after')
@@ -399,6 +479,9 @@
     <script src="{{ asset('js/plugins/bootstrap-notify/bootstrap-notify.min.js') }}"></script>
     <script src="{{ asset('js/invoices.js') }}"></script>
     <script>
+
+
+
         function calc() {
             $('#tab_logic tbody tr').each(function (i, element) {
                 var html = $(this).html();
@@ -408,7 +491,7 @@
                     $(this).find('.total').val(qty * price);
 
                     var taxValue = $(this).find('.taxValues').text();
-                 //   console.log(taxValue);
+                    //   console.log(taxValue);
                     $(this).find('.tax').val(((qty * price) * taxValue) / 100);
 
 
@@ -416,13 +499,13 @@
 
                     $(this).find('.discountTotal').val(qty * price);
 
-                    if(discount> 0){
+                    if (discount > 0) {
                         count = $('#tab_logic tbody').find('.total').length;
                         console.log('Count', count);
                         per_discount = discount / count;
 
                         $(this).find('.discountTotal').val(((qty * price) - per_discount).toFixed(2));
-                        $(this).find('.tax').val(((((qty * price)-per_discount) * taxValue) / 100).toFixed(2));
+                        $(this).find('.tax').val(((((qty * price) - per_discount) * taxValue) / 100).toFixed(2));
 
                     }
 
@@ -441,7 +524,7 @@
             });
             $('#sub_total').val(total.toFixed(2));
 
-            tax= 0;
+            tax = 0;
             $('.tax').each(function () {
                 tax += parseFloat($(this).val());
             });
@@ -449,10 +532,10 @@
 
             subTotal = $('#sub_total').val();
             totalTax = $('#total_tax').val();
-           // console.log('subTotal :' +subTotal + ' Total tax : '+totalTax);
+            // console.log('subTotal :' +subTotal + ' Total tax : '+totalTax);
             $('#total_amount').val(parseFloat(subTotal) + parseFloat(totalTax));
 
-         //
+            //
 
         }
 
@@ -463,12 +546,35 @@
             let currency;
             let currencyCode;
             let invoiceId;
-            let stockType ='S';
+            let stockType = 'S';
+            let tdId = 0;
             let H = parseInt("{{ Setting::get('invoice.ServiceTax') }}");
 
             //
-          //  Invoice TYPE
+            //  Invoice TYPE
 
+            $('#newStockForm').on('submit', function (event) {
+
+
+                event.preventDefault();
+                let url = $(this).attr('action');
+                let data = $(this).serialize();
+                $.ajax({
+                    url: url,
+                    type: 'post',
+                    data: data,
+                }).done(function (response) {
+                  //  console.log($('#'+tdId).find('.productAutoComplet'));
+
+                    $('#'+tdId).find('.productAutoComplet').val(response.data.name);
+                    $('#'+tdId).find('.productId').val(response.data.id);
+                    $('#'+tdId).find('.taxValues').text(response.data.tax);
+
+                    $('#modal-createStock').modal('hide');
+                });
+
+
+            });
             //Invoice Action
             let i = 1;
             $("#add_row").click(function () {
@@ -502,12 +608,12 @@
                     $(this).next().find('.discountTotal').val(total - per_discount);
                     taxValue = $(this).prev().find('.taxValues').text();
 
-                    tax = ((total-per_discount) * taxValue) / 100;
+                    tax = ((total - per_discount) * taxValue) / 100;
 
-                    console.log(total ,tax, taxValue);
+                    console.log(total, tax, taxValue);
 
-                  // console.log($(this).prev().find('input'));
-                   $(this).prev().find('input').val(tax);
+                    // console.log($(this).prev().find('input'));
+                    $(this).prev().find('input').val(tax);
 
 
                 });
@@ -515,12 +621,17 @@
             });
 
             $('body')
-                .on('click','.invoiceType a', function (event) {
+                .on('click', '.newStock', function (event) {
+
+                    tdId = $(this).parent().parent().parent().parent().attr('id');
+                    $('#modal-createStock').modal('show');
+                })
+                .on('click', '.invoiceType a', function (event) {
 
                     stockType = $(this).data('text');
-                   // ney = $(this).parent().parent().parent().parent().parent().attr('id');
-                   $(this).parent().parent().parent().parent().siblings(3).find('.taxValues').text(H);
-                   ney = $(this).parent(); // currentInvoiceType
+                    // ney = $(this).parent().parent().parent().parent().parent().attr('id');
+                    $(this).parent().parent().parent().parent().siblings(3).find('.taxValues').text(H);
+                    ney = $(this).parent(); // currentInvoiceType
                     console.log(ney);
                 })
                 .on('focus', '.productAutoComplet', function () {
@@ -533,12 +644,12 @@
                                 },
                                 dataType: "json",
                                 success: function (data) {
-                                   console.log(data);
+                                    console.log(data);
                                     var resp = $.map(data, function (obj) {
                                         return {
                                             label: obj.name,
                                             value: obj.id,
-                                            tax:parseInt(obj.tax)
+                                            tax: parseInt(obj.tax)
                                         }
                                     });
 
@@ -549,14 +660,14 @@
 
                         }, select: function (event, ui) {
                             $(this).val(ui.item.label);
+                            $(this).siblings('.productId').val(ui.item.value);
                             $(this).parent().parent().siblings().eq(3).children('.input-group').find('button').text(ui.item.tax);
 
-                            return false;
                         },
                         minLength: 3
                     });
                 })
-                .on('change','#currencyCodeChange', function () {
+                .on('change', '#currencyCodeChange', function () {
                     var code = this.value;
                     var date = $('#invoiceDate').val();
                     alert(date);
@@ -575,7 +686,7 @@
                         },
                         dataType: "json",
                         success: function (data) {
-                           // console.log(data);
+                            // console.log(data);
                             var resp = $.map(data, function (obj) {
                                 return {
                                     label: obj.company,
@@ -598,21 +709,7 @@
                 minLength: 3
             });
 
-            //
-            // $('#save-Invoice').on('click', function (e) {
-            //     if($('#company').val() === '' || $('#companyId').val() === '' || $('#invoiceDate').val() === '' || $('#invoiceNumber').val() === '' ){
-            //         //Codebase.blocks('#invoice-header', 'state_loading')
-            //         Codebase.helpers('notify', {
-            //             align: 'right',             // 'right', 'left', 'center'
-            //             from: 'top',                // 'top', 'bottom'
-            //             type: 'danger',               // 'info', 'success', 'warning', 'danger'
-            //             icon: 'fa fa-info mr-5',    // Icon class
-            //             message: 'Lütfen Tüm alanları doldurun!'
-            //         });
-            //     }
-            //
-            // });
-            //
+
             $('#button-newCurrentAccount').on('click', function (e) {
                 $('#modal-createAccount').modal('show');
             });
@@ -662,21 +759,21 @@
                         type: 'POST',
                         data: data,
                         success: function (response) {
-                          //  console.log(response);
+                            //  console.log(response);
                             var invoiceNumber = $('#invoiceNumber').val();
                             $('#invoiceCode').val(invoiceNumber);
                             $('h3.invoiceText').text('#' + invoiceNumber);
 
                             //
                             $('.invoiceCompany').text(response.company.company);
-                            $('span.address').html(response.company.address)
+                            $('span.address').html(response.company.address);
                             $('#invoiceCurrencyCode').val(response.currencyCode);
                             $('#invoiceCurrency').val(response.currency);
                             currencyCode = response.currencyCode;
                             currency = response.currency;
                             invoiceId = response.invoice.id;
                             $('#invoiceId').val(invoiceId);
-                         //   console.log('İnvoiceId'+invoiceId);
+                            //   console.log('İnvoiceId'+invoiceId);
                             if (currencyCode == null) {
                                 $('.currency-td').hide();
                             } else {
@@ -689,5 +786,6 @@
                 }
             });
         });
+
     </script>
 @stop

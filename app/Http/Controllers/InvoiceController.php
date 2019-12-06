@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\CurrencyCode;
+use App\Tax;
+use App\Unit;
 use Illuminate\Http\Request;
 
 class InvoiceController extends Controller
@@ -14,6 +16,8 @@ class InvoiceController extends Controller
 
     public function create(){
         $currencyCodes = CurrencyCode::all();
-        return view('invoices.create', compact('currencyCodes'));
+        $taxs = Tax::all();
+        $units = Unit::all();
+        return view('invoices.create', compact('currencyCodes','taxs','units'));
     }
 }
