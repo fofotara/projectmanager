@@ -481,7 +481,6 @@
     <script>
 
 
-
         function calc() {
             $('#tab_logic tbody tr').each(function (i, element) {
                 var html = $(this).html();
@@ -564,11 +563,11 @@
                     type: 'post',
                     data: data,
                 }).done(function (response) {
-                  //  console.log($('#'+tdId).find('.productAutoComplet'));
 
-                    $('#'+tdId).find('.productAutoComplet').val(response.data.name);
-                    $('#'+tdId).find('.productId').val(response.data.id);
-                    $('#'+tdId).find('.taxValues').text(response.data.tax);
+
+                    $('#' + tdId).find('.productAutoComplet').val(response.data.name);
+                    $('#' + tdId).find('.productId').val(response.data.id);
+                    $('#' + tdId).find('.taxValues').text(response.data.tax);
 
                     $('#modal-createStock').modal('hide');
                 });
@@ -635,6 +634,7 @@
                     console.log(ney);
                 })
                 .on('focus', '.productAutoComplet', function () {
+                    let tthis = $(this);
                     $(this).autocomplete({
                         source: function (request, response) {
                             $.ajax({
@@ -644,21 +644,22 @@
                                 },
                                 dataType: "json",
                                 success: function (data) {
-                                    console.log(data);
-                                    var resp = $.map(data, function (obj) {
+                                    // console.log(data);
+                                    let resp = $.map(data, function (obj) {
                                         return {
                                             label: obj.name,
-                                            value: obj.id,
+                                            value: parseInt(obj.id),
                                             tax: parseInt(obj.tax)
                                         }
                                     });
-
+                                    console.log(resp);
                                     response(resp);
                                 }
-
-                            })
+                            });
 
                         }, select: function (event, ui) {
+                            event.preventDefault();
+
                             $(this).val(ui.item.label);
                             $(this).siblings('.productId').val(ui.item.value);
                             $(this).parent().parent().siblings().eq(3).children('.input-group').find('button').text(ui.item.tax);
@@ -702,6 +703,7 @@
 
                 },
                 select: function (event, ui) {
+                    event.preventDefault();
                     $(this).val(ui.item.label);
                     $('#companyId').val(ui.item.value);
                     return false;

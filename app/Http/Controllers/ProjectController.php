@@ -33,6 +33,30 @@ class ProjectController extends Controller
         $templates = Template::orderBy('created_at')->get();
         return view('project.create', compact('templates'));
     }
+    public function update(Request $request, Project $project){
+        $this->validate($request, [
+            'title' => 'required',
+            'address' => 'required',
+            'projectStartDate' => 'required',
+            'projectEndDate' => 'required',
+            'description' => 'required',
+            'budget' => 'required',
+
+        ]);
+
+        $projectEdit = Project::find($project->id)->update([
+            'title' => $request->get('title'),
+            'address' => $request->get('address'),
+            'startDate' => Carbon::createFromFormat('d.m.Y', $request->get('projectStartDate'))->format('Y-m-d'),
+            'endDate' =>  Carbon::createFromFormat('d.m.Y', $request->get('projectEndDate'))->format('Y-m-d'),
+            'description' => $request->get('description'),
+            'budget' => $request->get('budget'),
+            'area' => $request->get('area'),
+            'floor' => $request->get('floor'),
+        ]);
+
+        return redirect()->back();
+    }
 
     public function createOne(Request $request, Project $project = null)
     {
@@ -93,7 +117,8 @@ class ProjectController extends Controller
              ->with('categories')
          ->first();
         // return $project->categories;
-        return view('project.createOne', compact('project'));
+        $templates = Template::orderBy('created_at')->get();
+        return view('project.createOne', compact('project','templates'));
     }
     public function projectDetailsStore(Request $request){
 

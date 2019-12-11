@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 6.6.1 on 2019-12-05 10:24:43.
+ * Generated for Laravel 6.7.0 on 2019-12-11 08:04:41.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -11654,6 +11654,18 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
+         * Get all of the view names for the database.
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function getAllViews()
+        {
+                        /** @var \Illuminate\Database\Schema\MySqlBuilder $instance */
+                        return $instance->getAllViews();
+        }
+        
+        /**
          * Set the default string length for migrations.
          *
          * @param int $length
@@ -14715,6 +14727,109 @@ namespace Illuminate\Support {
  
 }
 
+namespace Unisharp\Setting { 
+
+    /**
+     * 
+     *
+     */ 
+    class SettingFacade {
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function all()
+        {
+                        /** @var \Unisharp\Setting\Setting $instance */
+                        return $instance->all();
+        }
+        
+        /**
+         * Return setting value or default value by key.
+         *
+         * @param string $key
+         * @param string $value
+         * @return string|null 
+         * @static 
+         */ 
+        public static function get($key, $default_value = null)
+        {
+                        /** @var \Unisharp\Setting\Setting $instance */
+                        return $instance->get($key, $default_value);
+        }
+        
+        /**
+         * Set the setting by key and value.
+         *
+         * @param string $key
+         * @param mixed $value
+         * @return void 
+         * @static 
+         */ 
+        public static function set($key, $value)
+        {
+                        /** @var \Unisharp\Setting\Setting $instance */
+                        $instance->set($key, $value);
+        }
+        
+        /**
+         * Check if the setting exists.
+         *
+         * @param string $key
+         * @return bool 
+         * @static 
+         */ 
+        public static function has($key)
+        {
+                        /** @var \Unisharp\Setting\Setting $instance */
+                        return $instance->has($key);
+        }
+        
+        /**
+         * Delete a setting.
+         *
+         * @param string $key
+         * @return void 
+         * @static 
+         */ 
+        public static function forget($key)
+        {
+                        /** @var \Unisharp\Setting\Setting $instance */
+                        $instance->forget($key);
+        }
+        
+        /**
+         * Should language parameter auto retested ?
+         *
+         * @param bool $option
+         * @return \Unisharp\Setting\instance of Setting
+         * @static 
+         */ 
+        public static function langResetting($option = false)
+        {
+                        /** @var \Unisharp\Setting\Setting $instance */
+                        return $instance->langResetting($option);
+        }
+        
+        /**
+         * Set the language to work with other functions.
+         *
+         * @param string $language
+         * @return \Unisharp\Setting\instance of Setting
+         * @static 
+         */ 
+        public static function lang($language)
+        {
+                        /** @var \Unisharp\Setting\Setting $instance */
+                        return $instance->lang($language);
+        }
+         
+    }
+ 
+}
+
 namespace Barryvdh\Debugbar { 
 
     /**
@@ -15758,109 +15873,6 @@ namespace Oriceon\Settings\Facades {
  
 }
 
-namespace Unisharp\Setting { 
-
-    /**
-     * 
-     *
-     */ 
-    class SettingFacade {
-        
-        /**
-         * 
-         *
-         * @static 
-         */ 
-        public static function all()
-        {
-                        /** @var \Unisharp\Setting\Setting $instance */
-                        return $instance->all();
-        }
-        
-        /**
-         * Return setting value or default value by key.
-         *
-         * @param string $key
-         * @param string $value
-         * @return string|null 
-         * @static 
-         */ 
-        public static function get($key, $default_value = null)
-        {
-                        /** @var \Unisharp\Setting\Setting $instance */
-                        return $instance->get($key, $default_value);
-        }
-        
-        /**
-         * Set the setting by key and value.
-         *
-         * @param string $key
-         * @param mixed $value
-         * @return void 
-         * @static 
-         */ 
-        public static function set($key, $value)
-        {
-                        /** @var \Unisharp\Setting\Setting $instance */
-                        $instance->set($key, $value);
-        }
-        
-        /**
-         * Check if the setting exists.
-         *
-         * @param string $key
-         * @return bool 
-         * @static 
-         */ 
-        public static function has($key)
-        {
-                        /** @var \Unisharp\Setting\Setting $instance */
-                        return $instance->has($key);
-        }
-        
-        /**
-         * Delete a setting.
-         *
-         * @param string $key
-         * @return void 
-         * @static 
-         */ 
-        public static function forget($key)
-        {
-                        /** @var \Unisharp\Setting\Setting $instance */
-                        $instance->forget($key);
-        }
-        
-        /**
-         * Should language parameter auto retested ?
-         *
-         * @param bool $option
-         * @return \Unisharp\Setting\instance of Setting
-         * @static 
-         */ 
-        public static function langResetting($option = false)
-        {
-                        /** @var \Unisharp\Setting\Setting $instance */
-                        return $instance->langResetting($option);
-        }
-        
-        /**
-         * Set the language to work with other functions.
-         *
-         * @param string $language
-         * @return \Unisharp\Setting\instance of Setting
-         * @static 
-         */ 
-        public static function lang($language)
-        {
-                        /** @var \Unisharp\Setting\Setting $instance */
-                        return $instance->lang($language);
-        }
-         
-    }
- 
-}
-
 
 namespace  { 
 
@@ -16207,7 +16219,7 @@ namespace  {
             /**
              * Execute the query as a "select" statement.
              *
-             * @param array $columns
+             * @param array|string $columns
              * @return \Illuminate\Database\Eloquent\Collection|static[] 
              * @static 
              */ 
@@ -16220,7 +16232,7 @@ namespace  {
             /**
              * Get the hydrated models without eager loading.
              *
-             * @param array $columns
+             * @param array|string $columns
              * @return \Illuminate\Database\Eloquent\Model[]|static[] 
              * @static 
              */ 
@@ -16592,7 +16604,7 @@ namespace  {
             /**
              * Execute the query and get the first result.
              *
-             * @param array $columns
+             * @param array|string $columns
              * @return \Illuminate\Database\Eloquent\Model|object|static|null 
              * @static 
              */ 
@@ -18723,6 +18735,8 @@ namespace  {
 
     class View extends \Illuminate\Support\Facades\View {}
 
+    class Setting extends \Unisharp\Setting\SettingFacade {}
+
     class Debugbar extends \Barryvdh\Debugbar\Facade {}
 
     class Flare extends \Facade\Ignition\Facades\Flare {}
@@ -18730,8 +18744,6 @@ namespace  {
     class Image extends \Intervention\Image\Facades\Image {}
 
     class Settings extends \Oriceon\Settings\Facades\Settings {}
-
-    class Setting extends \Unisharp\Setting\SettingFacade {}
  
 }
 

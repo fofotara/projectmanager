@@ -110,7 +110,6 @@
                     </div>
                     <div class="col-md-6 order-md-1 py-20">
 
-
                             <div class=" form-group">
                                 <label>Proje Adı</label>
                                 <input name="title" id="title" class="form-control" value="{{ old('title') }}">
@@ -125,7 +124,6 @@
                                 </select>
 
                             </div>
-
                             <div class=" form-group">
                                 <label>Adres</label>
                                 <textarea name="address" id="address" rows="5"
@@ -167,8 +165,7 @@
                                 <textarea name="description" id="description" rows="5"
                                           class="form-control">{{ old('description') }}</textarea>
                             </div>
-
-                        <div class="row form-group">
+                            <div class="row form-group">
                             <div class="col-md-6">
                                 <label for="area">Arsa Yüz Ölçümü ( m<sup>2</sup> )</label>
                                 <input type="number" step="any" name="area" id="area" class="form-control" value="{{ old('area') }}">
@@ -186,7 +183,6 @@
                                 </div>
 
                             </div>
-
                     </div>
                 </div>
             </div>

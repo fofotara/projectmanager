@@ -10,6 +10,14 @@
     <script>
         $(document).ready(function () {
 
+            $('.datepicker-field').datepicker({
+                //format:'YYYY-mm-dd'
+                language: 'tr'
+            });
+
+            $('#projectStartDate').datepicker('update', new Date("{{ $project->startDate }}"));
+            $('#projectEndDate').datepicker('update', new Date("{{ $project->endDate }}"));
+
 
             var updateOutput = function (e) {
                 var list = e.length ? e : $(e.target),
@@ -64,253 +72,262 @@
             }
 
         });
-
+        Date.prototype.addDays = function (days) {
+            var date = new Date(this.valueOf());
+            date.setDate(date.getDate() + days);
+            return date;
+        }
         //EDITABLE
-        $('.modal-editable').on('click', function () {
-            var nestedId = $(this).data('id');
+        $('#newStockButton').on('click', function () {
+            console.log('On click New Button');
 
+            $('#nestedName').html('Yeni Kayıt');
+            $('#updateTask')[0].reset();
+            $('#modal-nestedDetails').modal('show');
+        });
+        $('.modal-editable').on('click', function () {
+            let nestedId = $(this).data('id');
             $.ajax({
                 url: '/dashboard/projects/projectDetail/' + nestedId,
-                type:'GET',
+                type: 'GET',
                 success: function (data) {
-                    console.log(data);
-                    $('#DivStartDate').data('date',data.startDate);
-                    $('#nestedName').html(data.name);
-                    //  $('#DivStartDate').val(data.startDate).datepicker("update");
-
-                    $('#DivStartDate').datepicker({
-                        language:'tr'
-                    }).on('changeDate', function() {
-                        $('#startDate').val(
-                            $('#DivStartDate').datepicker('getFormattedDate')
-                        );
-                    });
-
-
+                    $('#nestedName').html(data.text);
+                    $('#text').val(data.text);
+                    $('#id').val(data.id);
+                    $('#cost_amount').val(data.cost_amount);
+                    $('#startDate').datepicker('update', new Date(data.start_date));
+                    $('#lastDate').datepicker('update', new Date(data.last_date));
+                    $('#endDate').datepicker('update', new Date(data.end_date !== null ? data.end_date : ''));
                 }
             });
-
-            console
-                .log(nestedId);
+            $('#action').val('update');
             $('#modal-nestedDetails').modal('show');
+        });
+        /*
+        $('#updateTask').on('submit', function (event) {
+            event.preventDefault();
+            let data = $(this).serialize();
+            var url = $(this).attr('action');
+            $.ajax({
+                url: url,
+                type:'post',
+                data: data,
+            }).done(function (response) {
+
+                console.log(response);
+            })
         })
+        */
+
     </script>
 
 
 
 @stop
 @section('css_after')
-    <link href="{{ asset('js/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/pages/x-editable.css') }}">
+
+
     <link rel="stylesheet" href="{{ asset('css/pages/nested.css') }}">
+    <link href="{{ asset('js/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css') }}" rel="stylesheet">
 @stop
 @section('content')
     <!-- From Left Modal -->
-    <div class="modal fade" id="modal-nestedDetails" tabindex="-1" role="dialog" aria-labelledby="modal-fromleft" aria-hidden="true">
+    <div class="modal fade" id="modal-nestedDetails" tabindex="-1" role="dialog" aria-labelledby="modal-fromleft"
+         data-keyboard="false" data-backdrop="static"
+         aria-hidden="true">
         <div class="modal-dialog modal-dialog-fromleft" role="document">
-            <div class="modal-content">
-                <div class="block block-themed block-transparent mb-0">
-                    <div class="block-header bg-primary-dark">
-                        <h3 class="block-title" id="nestedName"></h3>
-                        <div class="block-options">
-                            <button type="button" class="btn-block-option" data-dismiss="modal" aria-label="Close">
-                                <i class="si si-close"></i>
-                            </button>
+            <form id="updateTask" method="post" action="{{ action('ProjectDetailController@CreateOrUpdate') }}">
+                @csrf
+                <div class="modal-content">
+                    <div class="block block-themed block-transparent mb-0">
+                        <div class="block-header bg-primary-dark">
+                            <h3 class="block-title" id="nestedName"></h3>
+                            <div class="block-options">
+                                <button type="button" class="btn-block-option" data-dismiss="modal" aria-label="Kapat">
+                                    <i class="si si-close"></i>
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="block-content">
-                        <form>
-                            <div class="row form-group">
-                                <div class="col-md-6">
-                                    <label for="startDate">Başlangıç Tarihi</label>
-                                    <div id="DivStartDate" data-date="12/03/2012"></div>
-                                    <input type="text" id="startDate">
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="startDate">Bitiş Tarihi</label>
-                                    <div class="input-group">
-
-                                        <input name="endDate" id="endDate" type="text"
-                                               class="form-control datetimepicker">
-                                        <div class="input-group-append">
-                                          <span class="input-group-text">
-                                              <i class="fa fa-calendar"></i>
-                                          </span>
-                                        </div>
-                                    </div>
-                                </div>
-
-
+                        <div class="block-content">
+                            <input type="hidden" name="id" id="id" autocomplete="off" required>
+                            <input type="hidden" name="projectId" value="{{ $project->id }}" autocomplete="off"
+                                   required>
+                            <div class="form-group">
+                                <label for="starDate">Aşama Adı</label>
+                                <input class="form-control " name="text" id="text" autocomplete="off" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="starDate">Başlangıç Tarihi</label>
+                                <input class="form-control datepicker-field" name="startDate" id="startDate"
+                                       autocomplete="off" required>
                             </div>
 
-                        </form>
+                            <div class="form-group">
+                                <label for="starDate">Kesin Bitiş Tarihi</label>
+                                <input class="form-control datepicker-field" name="lastDate" id="lastDate"
+                                       autocomplete="off" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="starDate">Bitiş Tarihi</label>
+                                <input class="form-control datepicker-field" name="endDate" id="endDate"
+                                       autocomplete="off" required>
+                            </div>
+                            <div class="row form-group col-md-4">
+                                <label for="starDate">Tahmini Bedeli</label>
+                                <input type="number" step="any" class="form-control" name="cost_amount" id="cost_amount"
+                                       autocomplete="off" required>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-alt-secondary" data-dismiss="modal">Kapat</button>
+                        <button type="submit" class="btn btn-alt-success">
+                            <i class="fa fa-check"></i> Kaydet
+                        </button>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-alt-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-alt-success" data-dismiss="modal">
-                        <i class="fa fa-check"></i> Perfect
-                    </button>
-                </div>
-            </div>
+            </form>
         </div>
     </div>
     <!-- END From Left Modal -->
     <!-- Page Content -->
     <div class="content">
-        <div class="my-50 text-center">
-            <h2 class="font-w700 text-black mb-10" id="titleCopy">
-
-            </h2>
-            <h3 class="h5 text-muted mb-0">
-                <i class="fa fa-map-pin mr-5"></i> <span id="addressCopy"></span>
-            </h3>
-        </div>
         <div class="block block-rounded block-fx-shadow">
-            <div class="block-content p-0 bg-image" style="background-image: url('/media/photos/photo35@2x.jpg');">
-                <div class="px-20 py-150 bg-black-op text-center rounded-top">
-                    <h5 id="budgetCopy" class="font-size-h1 font-w300 text-white mb-10"></h5>
-                    <span class="badge badge-primary text-uppercase font-w700 py-10 px-15">For Sale</span>
-                </div>
+            <div class="block-header block-header-default">
+                {{ $project->title }} Detayları
             </div>
-            <div class="block-content bg-body-light">
-                <div class="row py-10">
-                    <div class="col-6 col-md-4">
-                        <p>
-                            <i class="fa fa-fw fa-bed text-muted mr-5"></i> <strong>2</strong> Bedrooms
-                        </p>
-                    </div>
-                    <div class="col-6 col-md-4">
-                        <p>
-                            <i class="fa fa-fw fa-bath text-muted mr-5"></i> <strong>1</strong> Bathroom
-                        </p>
-                    </div>
-                    <div class="col-6 col-md-4">
-                        <p>
-                            <i class="fa fa-fw fa-car text-muted mr-5"></i> <strong>1</strong> Parking
-                        </p>
-                    </div>
-                    <div class="col-6 col-md-4">
-                        <p>
-                            <i class="fa fa-fw fa-arrows-alt text-muted mr-5"></i> <strong>310</strong> sq.ft.
-                        </p>
-                    </div>
-                    <div class="col-6 col-md-4">
-                        <p>
-                            <i class="fa fa-fw fa-fire text-muted mr-5"></i> Electricity
-                        </p>
-                    </div>
-                    <div class="col-6 col-md-4">
-                        <p>
-                            <i class="fa fa-fw fa-globe text-muted mr-5"></i> <strong>1</strong> Gbps
-                        </p>
-                    </div>
-                </div>
-            </div>
+            <form method="post" action="{{ action('ProjectController@update',$project) }}">
+                @csrf
+            <div class="block-content">
+                <div class="col-md-6 order-md-1 py-20">
 
+                    <div class=" form-group">
+                        <label>Proje Adı</label>
+                        <input name="title" id="title" class="form-control" value="{{ old('title',$project->title) }}">
+                    </div>
+                    <div class=" form-group">
+                        <label>Adres</label>
+                        <textarea name="address" id="address" rows="5"
+                                  class="form-control">{{ old('address',$project->address) }}</textarea>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-6">
+                            <label for="startDate">Başlangıç Tarihi</label>
+                            <div class="input-group">
 
-            <div class="block-content block-content-full">
-                <div class="row">
-                    <div class="col-md-6 order-md-2 py-20">
-                        <div class="row gutters-tiny js-gallery img-fluid-100">
-                            <div class="col-6">
-                                <a class="img-link img-link-simple img-thumb img-lightbox"
-                                   href="/media/photos/photo35@2x.jpg">
-                                    <img class="img-fluid" src="/media/photos/photo35.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="col-6">
-                                <a class="img-link img-link-simple img-thumb img-lightbox"
-                                   href="/media/photos/photo41@2x.jpg">
-                                    <img class="img-fluid" src="/media/photos/photo41.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="col-6">
-                                <a class="img-link img-link-simple img-thumb img-lightbox"
-                                   href="/media/photos/photo42@2x.jpg">
-                                    <img class="img-fluid" src="/media/photos/photo42.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="col-6">
-                                <a class="img-link img-link-simple img-thumb img-lightbox"
-                                   href="/media/photos/photo43@2x.jpg">
-                                    <img class="img-fluid" src="/media/photos/photo43.jpg" alt="">
-                                </a>
+                                <input name="projectStartDate" id="projectStartDate" type="text"   autocomplete="off"
+                                       class="form-control datepicker-field">
+                                <div class="input-group-append">
+                                          <span class="input-group-text">
+                                              <i class="fa fa-calendar"></i>
+                                          </span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 order-md-1 py-20" style="position: relative">
-                        <div class="block">
-                            <div class="block-content-full bg-secondary  p-50">
-                                <form action="{{ action('ProjectController@projectDetailsStore') }}"
-                                      method="post">
-                                    @csrf
-                                    <input type="hidden" name="template_id"
-                                           value="{{ $project->id }}">
-                                    <div class="form-group row">
-                                        <div class="col-md-6">
-                                            <input name="category" class="form-control" id="category"
-                                                   type="text" placeholder="Ekle" required>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <button type="submit" class="btn btn-success"><i
-                                                    class="fa fa-plus"></i> Ekle
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
+                        <div class="col-md-6">
+                            <label for="startDate">Bitiş Tarihi</label>
+                            <div class="input-group">
 
+                                <input name="projectEndDate" id="projectEndDate" type="text"  autocomplete="off"
+                                       class="form-control datepicker-field">
+                                <div class="input-group-append">
+                                          <span class="input-group-text">
+                                              <i class="fa fa-calendar"></i>
+                                          </span>
+                                </div>
                             </div>
                         </div>
-                        <div class="js-nestable-connected-treeview dd" id="nestable">
-                            <ol class="dd-list">
-                                @foreach($project->categories->where('parent',null) as $selectT)
-                                    <li class="dd-item dd3-item" data-id="{{ $selectT->id }}">
-                                        <div class="dd-handle dd3-handle"></div>
-                                        <div class="dd3-content">
-
-                                            <div class="pull-left">
-                                                <a href="#" class="x-editable" data-type="text"
-                                                   data-pk="{{ $selectT->id }}">
-                                                    {{$selectT->text}}
-                                                </a>
-
-                                            </div>
-                                            <div class="pull-right">
-                                                <span>  {{ $selectT->start_date != null ? 'Başlangıç : '. $selectT->start_date->format('d-m-Y') : '' }}</span>
-                                                <button data-id="{{ $selectT->id }}"
-                                                        class="btn btn-sm btn-warning modal-editable">Düzenle</button>
-                                                <a href="{{ action('ProjectController@projectDetailsDelete', $selectT) }}"
-                                                   class="btn btn-sm btn-danger">Sil</a>
-                                            </div>
 
 
+                    </div>
+                    <div class=" form-group">
 
-
-                                        </div>
-
-                                        @include('project.include-categories', ['children' => $selectT])
-                                    </li>
-                                @endforeach
-                            </ol>
+                        <label for="description">Detay</label>
+                        <textarea name="description" id="description" rows="5"
+                                  class="form-control">{{ old('description',$project->description) }}</textarea>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-6">
+                            <label for="area">Arsa Yüz Ölçümü ( m<sup>2</sup> )</label>
+                            <input type="number" step="any" name="area" id="area" class="form-control" value="{{ old('area',$project->area) }}">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="floor">Bina Yüz Ölçümü ( m<sup>2</sup> )</label>
+                            <input type="number" step="any" name="floor" id="floor" class="form-control" value="{{ old('floor',$project->floor) }}">
                         </div>
 
-                        <textarea class="form-control" style="display: none" rows="10" id="nestable-output"></textarea>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-6">
+                            <label for="budget">Tahmini Proje Tutarı</label>
+                            <input type="number" step="any" name="budget" id="budget" class="form-control" value="{{ old('budget',$project->budget) }}">
+                        </div>
+
                     </div>
                 </div>
             </div>
-{{--            <div class="block-content block-content-full border-top clearfix">--}}
-{{--                <button type="submit" class="btn btn-hero btn-alt-danger float-right">--}}
-{{--                    <i class="fa fa-forward"></i> İleri--}}
-{{--                </button>--}}
-{{--                <a class="btn btn-hero btn-alt-primary" href="javascript:void(0)">--}}
-{{--                    <i class="fa fa-backward mr-5"></i> Geri--}}
-{{--                </a>--}}
-{{--            </div>--}}
+            <div class="block-content block-content-full block-content-sm bg-body-light font-size-sm text-right">
 
+                    <button type="submit" class="btn btn-sm btn-square btn-primary min-width-125 mb-10"><i
+                            class="fa fa-save"></i> Kaydet
+                    </button>
+
+            </div>
+            </form>
         </div>
     </div>
-    <!-- END Page Content -->
+    <div class="content">
+        <div class="block block-rounded block-fx-shadow">
+            <div class="block-header block-header-default">
+                {{ $project->title }} Aşamaları
+                <div class="block-options">
+                    <button id="newStockButton" class="btn btn-sm btn-square btn-primary min-width-125 mb-10"><i
+                            class="fa fa-plus-circle"></i> Yeni Ekle
+                    </button>
+                </div>
+            </div>
+            <div class="block-content block-content-full">
+                <div class="order-md-1 py-20" style="position: relative">
+                    <div class="js-nestable-connected-treeview dd" id="nestable">
+                        <ol class="dd-list">
+                            @foreach($project->categories->where('parent',null) as $selectT)
+                                <li class="dd-item dd3-item" data-id="{{ $selectT->id }}">
+                                    <div class="dd-handle dd3-handle"></div>
+                                    <div class="dd3-content">
+                                        <div class="pull-left">
+                                            <a href="#" class="x-editable" data-type="text"
+                                               data-pk="{{ $selectT->id }}">
+                                                {{$selectT->text}}
+                                            </a>
+                                        </div>
+                                        <div class="pull-left pl-10">
+                                            @if($selectT->start_date !=null)
+                                                <button type="button" class="btn btn-alt-secondary" data-toggle="popover" title="Başlangıç Tarihi" data-placement="left" data-html="true" data-content="{!! 'Bu sekmenin başlangıç tarihi: </br>' .$selectT->start_date->format('d-m-Y') !!}"> Başlangıç {{ $selectT->start_date->format('d-m-Y') }}</button>
+                                            @endif
+                                        </div>
+                                        <div class="pull-right">
+
+                                            <button data-id="{{ $selectT->id }}"
+                                                    class="btn btn-sm btn-warning modal-editable">Düzenle
+                                            </button>
+                                            <a href="{{ action('ProjectController@projectDetailsDelete', $selectT) }}"
+                                               class="btn btn-sm btn-danger">Sil</a>
+                                        </div>
+                                    </div>
+                                    @include('project.include-categories', ['children' => $selectT])
+                                </li>
+                            @endforeach
+                        </ol>
+                    </div>
+                    <textarea class="form-control" style="display: none" rows="10" id="nestable-output"></textarea>
+                </div>
+            </div>
+        </div>
 
 
+        <!-- END Page Content -->
+
+    </div>
 @endsection

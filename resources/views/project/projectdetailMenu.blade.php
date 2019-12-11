@@ -135,7 +135,7 @@
                                                         <i class="si si-calendar fa-2x bg-warning"></i>
                                                         <p class="text-muted">Kesin Bitiş</p>
                                                         <p class="text-muted">
-                                                            {{ $selectT->end_date->format('d-m-Y')}}
+                                                            {{ $selectT->end_date != null ? $selectT->end_date->format('d-m-Y'): ''}}
 
                                                         </p>
 

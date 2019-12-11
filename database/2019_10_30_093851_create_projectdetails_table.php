@@ -23,6 +23,7 @@ class CreateProjectdetailsTable extends Migration
             $table->integer('parent')->nullable();
             $table->DateTime('start_date')->nullable();
             $table->string('text');
+            $table->decimal('cost_amount');
             $table->timestamps();
         });
     }

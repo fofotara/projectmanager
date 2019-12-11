@@ -3,6 +3,9 @@
     <!-- Page Content -->
     <div class="content">
 
+    </div>
+    <div class="content">
+
 
         <div class="block">
             <div class="block-header block-header-default">
@@ -38,7 +41,7 @@
                                 <td>{{ $project->endDate->format('d-m-Y') }}</td>
                                 <td class="text-center">
                                     <div class="btn-group">
-                                        <a href="{{ action('ProjectController@edit', $project) }}" type="button" class="btn btn-sm btn-warning" data-toggle="tooltip"
+                                        <a href="{{ action('ProjectController@projectCreateDetails', $project) }}" type="button" class="btn btn-sm btn-warning" data-toggle="tooltip"
                                                 title="Edit">
                                             <i class="fa fa-pencil"></i>
                                         </a>

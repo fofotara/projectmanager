@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 
@@ -40,11 +41,13 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read \App\User $user
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Projectdetail whereEndDate($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Projectdetail whereUserId($value)
+ * @property-read mixed $last_date
  */
 class Projectdetail extends Model
 {
     protected $guarded = [''];
     protected $dates =['start_date','end_date'];
+    protected $appends = ['last_date'];
 
     public function parents(){
         return $this->belongsTo('App\Projectdetail','parent');
@@ -55,5 +58,11 @@ class Projectdetail extends Model
     }
     public function user(){
         return $this->belongsTo('App\User','user_id','id');
+    }
+
+    public function getLastDateAttribute()
+    {
+        $date = Carbon::parse($this->start_date)->addDays($this->duration)->format('Y-m-d');
+       return $date;
     }
 }

@@ -32,7 +32,7 @@
         "js-cookie": "^2.2.1",
         "laravel-vue-pagination": "^2.3.1",
         "nestable2": "^1.6.0",
-        "npm-check-updates": "^3.2.2",
+        "npm-check-updates": "^4.0.1",
         "popper.js": "^1.16.0",
         "simplebar": "^5.0.7",
         "vue-moment": "^4.0.0",

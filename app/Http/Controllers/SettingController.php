@@ -13,7 +13,8 @@ class SettingController extends Controller
     public function SettingInvoiceSave(Request $request)
     {
         \Setting::set('invoice',[
-            'ServiceTax' => $request->invoiceServiceTax
+            'ServiceTax' => $request->invoiceServiceTax,
+            'CompanyName' => $request->invoiceCompanyName
         ]);
        // return $request->all();
 

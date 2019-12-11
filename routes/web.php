@@ -61,7 +61,6 @@ Route::group(['middleware' => ['auth']], function () {
                 Route::get('templateDetailsDelete/{templatedetail}', 'TemplateController@templateDetailsDelete');
             });
 
-
         });
 
 
@@ -108,6 +107,7 @@ Route::group(['middleware' => ['auth']], function () {
             Route::get('edit/{project}', 'ProjectController@edit');
 
             Route::get('create-1/{project}', 'ProjectController@projectCreateDetails');
+            Route::post('updateProject/{project}','ProjectController@update');
 
             Route::post('updateProject', 'ProjectController@updateProject');
             Route::post('projectDetailsStore', 'ProjectController@projectDetailsStore');
@@ -119,6 +119,7 @@ Route::group(['middleware' => ['auth']], function () {
 
             //AJAX
             Route::get('projectDetail/{id}', 'ProjectController@projectDetail');
+            Route::post('projectDetailUpdate','ProjectDetailController@CreateOrUpdate');
 
 
             Route::group(['prefix' => '{projects}'], function ($projects) {

@@ -8,7 +8,7 @@
                     @csrf
                     <ul class="nav nav-tabs nav-tabs-block" data-toggle="tabs" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#btabs-static-home">Home</a>
+                            <a class="nav-link active" href="#btabs-static-home">Genel</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#btabs-static-profile">Profile</a>
@@ -25,8 +25,12 @@
                     </ul>
                     <div class="block-content tab-content">
                         <div class="tab-pane active" id="btabs-static-home" role="tabpanel">
-                            <h4 class="font-w400">Home Content</h4>
-                            <p>...</p>
+                            <div class="form-group row">
+                                <label class="col-md-3 col-form-label">Firma Adı</label>
+                                <div class="col-md-3">
+                                    <input type="number" class="form-control" name="invoiceCompanyName" value="{{ Setting::get('invoice.CompanyName') }}">
+                                </div>
+                            </div>
                         </div>
                         <div class="tab-pane" id="btabs-static-profile" role="tabpanel">
                             <h4 class="font-w400">Profile Content</h4>
