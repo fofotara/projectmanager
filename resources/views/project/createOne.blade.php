@@ -94,7 +94,7 @@
                     $('#nestedName').html(data.text);
                     $('#text').val(data.text);
                     $('#id').val(data.id);
-                    $('#cost_amount').val(data.cost_amount);
+                    $('#guess_cost_amount').val(data.guess_cost_amount);
                     $('#startDate').datepicker('update', new Date(data.start_date));
                     $('#lastDate').datepicker('update', new Date(data.last_date));
                     $('#endDate').datepicker('update', new Date(data.end_date !== null ? data.end_date : ''));
@@ -174,7 +174,7 @@
                             </div>
                             <div class="row form-group col-md-4">
                                 <label for="starDate">Tahmini Bedeli</label>
-                                <input type="number" step="any" class="form-control" name="cost_amount" id="cost_amount"
+                                <input type="number" step="any" class="form-control" name="guess_cost_amount" id="guess_cost_amount"
                                        autocomplete="off" required>
                             </div>
 
@@ -296,25 +296,40 @@
                                 <li class="dd-item dd3-item" data-id="{{ $selectT->id }}">
                                     <div class="dd-handle dd3-handle"></div>
                                     <div class="dd3-content">
-                                        <div class="pull-left">
-                                            <a href="#" class="x-editable" data-type="text"
-                                               data-pk="{{ $selectT->id }}">
-                                                {{$selectT->text}}
-                                            </a>
-                                        </div>
-                                        <div class="pull-left pl-10">
-                                            @if($selectT->start_date !=null)
-                                                <button type="button" class="btn btn-alt-secondary" data-toggle="popover" title="Başlangıç Tarihi" data-placement="left" data-html="true" data-content="{!! 'Bu sekmenin başlangıç tarihi: </br>' .$selectT->start_date->format('d-m-Y') !!}"> Başlangıç {{ $selectT->start_date->format('d-m-Y') }}</button>
-                                            @endif
-                                        </div>
-                                        <div class="pull-right">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <a href="#" class="x-editable" data-type="text"
+                                                   data-pk="{{ $selectT->id }}">
+                                                    {{$selectT->text}}
+                                                </a>
+                                            </div>
+                                            <div class="col-md-8">
+                                                @if($selectT->start_date !=null)
+                                                    <button type="button" class="btn btn-sm btn-alt-secondary" data-toggle="popover" title="Başlangıç Tarihi" data-placement="left" data-html="true" data-content="{!! 'Bu sekmenin başlangıç tarihi : </br>' .$selectT->start_date->format('d-m-Y') !!}"> Başlangıç: {{ $selectT->start_date->format('d-m-Y') }}</button>
+                                                @endif
+                                                    @if($selectT->start_date !=null)
+                                                        <button type="button" class="btn btn-sm btn-alt-success" data-toggle="popover" title="Bitiş Tarihi" data-placement="top" data-html="true" data-content="{!! 'Bu sekmenin bitiş tarihi : </br>' .\Carbon\Carbon::parse($selectT->start_date)->addDays($selectT->duration)->format('d-m-Y') !!}"> Bitiş: {{\Carbon\Carbon::parse($selectT->start_date)->addDays($selectT->duration)->format('d-m-Y') }}</button>
+                                                    @endif
+                                                    @if($selectT->end_date !=null)
+                                                        <button type="button" class="btn btn-sm btn-alt-warning" data-toggle="popover" title="Kesin Tarihi" data-placement="left" data-html="true" data-content="{!! 'Bu sekmenin Kesin Bitiş tarihi : </br>' .$selectT->end_date->format('d-m-Y') !!}"> Kesin Bitiş: {{ $selectT->end_date->format('d-m-Y') }}</button>
+                                                    @endif
+                                                    <span class="badge badge-success guess_cost_amount" data-toggle="popover" title="Tahmin edilen" data-placement="top" data-html="true" data-content="{!! 'Bu sekmede Yapılması öngörülen harcama : </br>' .number_format($selectT->guess_cost_amount,2,',','.') !!}">{{ number_format($selectT->guess_cost_amount,2,',','.') }}</span>
+                                                    <span class="badge badge-warning cost_amount" data-toggle="popover" title="Yapılan Harcama" data-placement="top" data-html="true" data-content="{!! 'Bu sekmede Yapılan toplam Harcama : </br>' .number_format($selectT->cost_amount,2,',','.') !!}">{{ number_format($selectT->cost_amount,2,'.',',') }}</span>
+                                                    <span class="badge badge-danger total_cost_amount" data-toggle="popover" title="Toplam Yapılan Harcama" data-placement="top" data-html="true" data-content="{!! 'Bu sekmede ve alt sekmelerinde : </br>' .number_format($selectT->total_cost_amount,2,',','.') !!}" >{{ number_format($selectT->total_cost_amount,2,',','.') }}</span>
+                                                <div class="float-right">
+                                                    <button data-id="{{ $selectT->id }}"
+                                                            class="btn btn-sm btn-warning modal-editable">Düzenle
+                                                    </button>
+                                                    <a href="{{ action('ProjectController@projectDetailsDelete', $selectT) }}"
+                                                       class="btn btn-sm btn-danger">Sil</a>
+                                                </div>
 
-                                            <button data-id="{{ $selectT->id }}"
-                                                    class="btn btn-sm btn-warning modal-editable">Düzenle
-                                            </button>
-                                            <a href="{{ action('ProjectController@projectDetailsDelete', $selectT) }}"
-                                               class="btn btn-sm btn-danger">Sil</a>
+                                            </div>
+
                                         </div>
+
+
+
                                     </div>
                                     @include('project.include-categories', ['children' => $selectT])
                                 </li>

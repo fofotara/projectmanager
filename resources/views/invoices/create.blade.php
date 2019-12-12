@@ -83,229 +83,235 @@
         <!-- Invoice -->
 
         <div class="block">
-            <div class="block-header block-header-default">
-                <h3 class="block-title invoiceText">#INV0015</h3>
-                <input name="invoiceCode" id="invoiceCode" value="" type="text">
-                <input name="invoiceCurrencyCode" id="invoiceCurrencyCode" value="" type="text">
-                <input name="invoiceCurrency" id="invoiceCurrency" value="" type="text">
-                <input name="invoiceId" id="invoiceId" value="" type="text">
+            <form id="newInvoiceBody" method="post" action="{{ action('InvoiceController@store') }}">
+                @csrf
+                <div class="block-header block-header-default">
+                    <h3 class="block-title invoiceText">#INV0015</h3>
+                    <input name="invoiceCode" id="invoiceCode" value="" type="text">
+                    <input name="invoiceCurrencyCode" id="invoiceCurrencyCode" value="" type="text">
+                    <input name="invoiceCurrency" id="invoiceCurrency" value="" type="text">
+                    <input name="invoiceId" id="invoiceId"  type="text">
 
-                <div class="block-options">
-                    <select name="currencyCodeChange" id="currencyCodeChange" class="form-control">
-                        <option value="" selected>Döviz Yok</option>
-                        @foreach($currencyCodes as $codes)
-                            <option value="{{ $codes->code }}">{{ $codes->code }}</option>
-                        @endforeach
-                    </select>
-                    <button type="button" class="btn-block-option" onclick="Codebase.helpers('print-page');">
-                        <i class="si si-printer"></i> Print Invoice
-                    </button>
-                    <button type="button" class="btn-block-option" data-toggle="block-option"
-                            data-action="fullscreen_toggle"></button>
-                    <button type="button" class="btn-block-option" data-toggle="block-option" data-action="state_toggle"
-                            data-action-mode="demo">
-                        <i class="si si-refresh"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="block-content">
-                <div class="row my-20">
-                    <!-- Company Info -->
-                    <div class="col-6">
-                        <p class="h3">Company</p>
-                        <address>
-                            Street Address<br>
-                            State, City<br>
-                            Region, Postal Code<br>
-                            ltd@example.com
-                        </address>
+                    <div class="block-options">
+                        <select name="currencyCodeChange" id="currencyCodeChange" class="form-control">
+                            <option value="" selected>Döviz Yok</option>
+                            @foreach($currencyCodes as $codes)
+                                <option value="{{ $codes->code }}">{{ $codes->code }}</option>
+                            @endforeach
+                        </select>
+                        <button type="button" class="btn-block-option" onclick="Codebase.helpers('print-page');">
+                            <i class="si si-printer"></i> Print Invoice
+                        </button>
+                        <button type="button" class="btn-block-option" data-toggle="block-option"
+                                data-action="fullscreen_toggle"></button>
+                        <button type="button" class="btn-block-option" data-toggle="block-option"
+                                data-action="state_toggle"
+                                data-action-mode="demo">
+                            <i class="si si-refresh"></i>
+                        </button>
                     </div>
-                    <!-- END Company Info -->
-
-                    <!-- Client Info -->
-                    <div class="col-6 text-right">
-                        <p class="h3 invoiceCompany">Client</p>
-                        <address>
-                            <span class="address">Street Address</span>
-                        </address>
-                    </div>
-                    <!-- END Client Info -->
                 </div>
-                <!-- END Invoice Info -->
+                <div class="block-content">
+                    <div class="row my-20">
+                        <!-- Company Info -->
+                        <div class="col-6">
+                            <p class="h3">Company</p>
+                            <address>
+                                Street Address<br>
+                                State, City<br>
+                                Region, Postal Code<br>
+                                ltd@example.com
+                            </address>
+                        </div>
+                        <!-- END Company Info -->
 
-                <!-- Table -->
-                <div class="table-responsive push">
-                    <table class="table table-bordered table-hover" id="tab_logic">
-                        <thead>
-                        <tr>
-                            <th class="text-center" style="width: 2%"> #</th>
-                            <th class="text-center" style="width: 20%"> Ürün Adı</th>
-                            <th class="text-center" style="width: 10%"> Adet</th>
-                            <th class="text-center" style="width: 10%"> Birim Fiyat</th>
-                            <th class="text-center" style="width: 10%"> KDV</th>
-                            <th class="text-center" style="width: 13%"> Tutar</th>
-                            <th class="text-center" style="width: 13%"> İ. Tutar</th>
+                        <!-- Client Info -->
+                        <div class="col-6 text-right">
+                            <p class="h3 invoiceCompany">Client</p>
+                            <address>
+                                <span class="address">Street Address</span>
+                            </address>
+                        </div>
+                        <!-- END Client Info -->
+                    </div>
+                    <!-- END Invoice Info -->
+
+                    <!-- Table -->
+                    <div class="table-responsive push">
+                        <table class="table table-bordered table-hover" id="tab_logic">
+                            <thead>
+                            <tr>
+                                <th class="text-center" style="width: 2%"> #</th>
+                                <th class="text-center" style="width: 20%"> Ürün Adı</th>
+                                <th class="text-center" style="width: 10%"> Adet</th>
+                                <th class="text-center" style="width: 10%"> Birim Fiyat</th>
+                                <th class="text-center" style="width: 10%"> KDV</th>
+                                <th class="text-center" style="width: 13%"> Tutar</th>
+                                <th class="text-center" style="width: 13%"> İ. Tutar</th>
 
 
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr id='addr0'>
-                            <td>1</td>
-                            <td>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <button type="button" class="btn btn-sm btn-secondary currentInvoiceType">S
-                                        </button>
-                                        <button type="button"
-                                                class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split"
-                                                data-toggle="dropdown" aria-haspopup="true"
-                                                aria-expanded="false"></button>
-                                        <div class="dropdown-menu invoiceType">
-                                            <a class="dropdown-item" href="javascript:void(0)" data-text="S">
-                                                <i class="fa fa-fw fa-archive mr-5"></i>Stok
-                                            </a>
-                                            <a class="dropdown-item" href="javascript:void(0)" data-text="H">
-                                                <i class="fa fa-fw fa-tasks mr-5"></i>Hizmet
-                                            </a>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr id='addr0'>
+                                <td>1</td>
+                                <td>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <button type="button" class="btn btn-sm btn-secondary currentInvoiceType">S
+                                            </button>
+                                            <button type="button"
+                                                    class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split"
+                                                    data-toggle="dropdown" aria-haspopup="true"
+                                                    aria-expanded="false"></button>
+                                            <div class="dropdown-menu invoiceType">
+                                                <a class="dropdown-item" href="javascript:void(0)" data-text="S">
+                                                    <i class="fa fa-fw fa-archive mr-5"></i>Stok
+                                                </a>
+                                                <a class="dropdown-item" href="javascript:void(0)" data-text="H">
+                                                    <i class="fa fa-fw fa-tasks mr-5"></i>Hizmet
+                                                </a>
 
+                                            </div>
+                                        </div>
+                                        <input type="text" name='product[]' placeholder='ürün Adı Girin'
+                                               class="form-control form-control-sm productAutoComplet"/>
+                                        <div class="input-group-append">
+                                            <button type="button" class="btn btn-sm btn-secondary newStock">
+                                                <i class="fa fa-plus"></i>
+                                            </button>
+                                        </div>
+                                        <input type="hidden" name='productId[]' class="productId"/>
+                                    </div>
+
+                                </td>
+                                <td>
+                                    <input type="number" name='qty[]' placeholder='Adet'
+                                           class="form-control form-control-sm qty"
+                                           step="0" min="0"/>
+                                </td>
+
+                                <td>
+                                    <input type="number" name='price[]' placeholder='Birim Tutar'
+                                           class="form-control form-control-sm price" step="0.00" min="0"/>
+                                </td>
+                                <td>
+                                    <div class="input-group">
+                                        <input type="number" name='tax[]' placeholder='KDV'
+                                               class="form-control form-control-sm tax"
+                                               step="0.00" min="0" readonly/>
+                                        <div class="input-group-append">
+                                            <button class="btn btn-sm btn-secondary taxValues"
+                                                    name="taxValue[]"></button>
                                         </div>
                                     </div>
-                                    <input type="text" name='product[]' placeholder='ürün Adı Girin'
-                                           class="form-control form-control-sm productAutoComplet"/>
-                                    <div class="input-group-append">
-                                        <button type="button" class="btn btn-sm btn-secondary newStock">
-                                            <i class="fa fa-plus"></i>
-                                        </button>
-                                    </div>
-                                    <input type="hidden" name='productId[]' class="productId"/>
-                                </div>
 
-                            </td>
-                            <td>
-                                <input type="number" name='qty[]' placeholder='Adet'
-                                       class="form-control form-control-sm qty"
-                                       step="0" min="0"/>
-                            </td>
-
-                            <td>
-                                <input type="number" name='price[]' placeholder='Birim Tutar'
-                                       class="form-control form-control-sm price" step="0.00" min="0"/>
-                            </td>
-                            <td>
-                                <div class="input-group">
-                                    <input type="number" name='tax[]' placeholder='KDV'
-                                           class="form-control form-control-sm tax"
-                                           step="0.00" min="0" readonly/>
-                                    <div class="input-group-append">
-                                        <button class="btn btn-sm btn-secondary taxValues" name="taxValue[]"></button>
-                                    </div>
-                                </div>
-
-                            </td>
-                            <td>
-                                <input type="number" name='total[]' placeholder='0.00'
-                                       class="form-control form-control-sm total"
-                                       readonly/>
-                            </td>
-                            <td>
-                                <input type="number" name='discountTotal[]' placeholder='0.00'
-                                       class="form-control form-control-sm discountTotal"
-                                       readonly/>
-                            </td>
+                                </td>
+                                <td>
+                                    <input type="number" name='total[]' placeholder='0.00'
+                                           class="form-control form-control-sm total"
+                                           readonly/>
+                                </td>
+                                <td>
+                                    <input type="number" name='discountTotal[]' placeholder='0.00'
+                                           class="form-control form-control-sm discountTotal"
+                                           readonly/>
+                                </td>
 
 
-                        </tr>
-                        <tr id='addr1'></tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="row">
-                    <div class="col-md-12 mt-10 mb-10">
-                        <button id="add_row" class="btn btn-success pull-left">Satır Ekle</button>
-                        <button id='delete_row' class="pull-right btn btn-warning">Satır Sil</button>
+                            </tr>
+                            <tr id='addr1'></tr>
+                            </tbody>
+                        </table>
                     </div>
-                </div>
+                    <div class="row">
+                        <div class="col-md-12 mt-10 mb-10">
+                            <button type="button" id="add_row" class="btn btn-success pull-left">Satır Ekle</button>
+                            <button type="button" id='delete_row' class="pull-right btn btn-warning">Satır Sil</button>
+                        </div>
+                    </div>
 
-                <div class="table-responsive push">
-                    <table class="table table-borderless" id="tab_logic_total">
-                        <tbody>
-                        <tr>
-                            <th style="width: 10%"></th>
-                            <th style="width: 50%"></th>
+                    <div class="table-responsive push">
+                        <table class="table table-borderless" id="tab_logic_total">
+                            <tbody>
+                            <tr>
+                                <th style="width: 10%"></th>
+                                <th style="width: 50%"></th>
 
-                            <th class="text-center" style="width: 15%">Toplam</th>
-                            <td class="text-center" style="width: 15%">
-                                <input type="number" name='sub_total'
-                                       placeholder='0.00'
-                                       class="form-control" id="sub_total"
-                                       readonly/></td>
+                                <th class="text-center" style="width: 15%">Toplam</th>
+                                <td class="text-center" style="width: 15%">
+                                    <input type="number" name='sub_total'
+                                           placeholder='0.00'
+                                           class="form-control" id="sub_total"
+                                           readonly/></td>
 
-                        </tr>
-                        <tr>
-                            <th style="width: 10%"></th>
-                            <th></th>
+                            </tr>
+                            <tr>
+                                <th style="width: 10%"></th>
+                                <th></th>
 
-                            <th class="text-center">İndirim</th>
-                            <td class="text-center">
-                                <input type="number" name='total_discount' id="total_discount"
-                                       placeholder='0.00' class="form-control"/>
-                            </td>
+                                <th class="text-center">İndirim</th>
+                                <td class="text-center">
+                                    <input type="number" name='total_discount' id="total_discount"
+                                           placeholder='0.00' class="form-control"/>
+                                </td>
 
-                        </tr>
-                        <tr>
-                            <th style="width: 10%"></th>
-                            <th></th>
+                            </tr>
+                            <tr>
+                                <th style="width: 10%"></th>
+                                <th></th>
 
-                            <th class="text-center">KDV</th>
-                            <td class="text-center">
-                                <div class="input-group">
-                                    <input type="number" step="0.00" class="form-control" id="total_tax"
-                                           name="total_tax"
-                                           readonly placeholder="0">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-secondary"> %</button>
+                                <th class="text-center">KDV</th>
+                                <td class="text-center">
+                                    <div class="input-group">
+                                        <input type="number" step="0.00" class="form-control" id="total_tax"
+                                               name="total_tax"
+                                               readonly placeholder="0">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-secondary"> %</button>
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
+                                </td>
 
-                        </tr>
-                        <tr>
-                            <th style="width: 10%"></th>
-                            <th></th>
+                            </tr>
+                            <tr>
+                                <th style="width: 10%"></th>
+                                <th></th>
 
 
-                        </tr>
-                        <tr>
-                            <th style="width: 10%"></th>
-                            <th></th>
+                            </tr>
+                            <tr>
+                                <th style="width: 10%"></th>
+                                <th></th>
 
-                            <th class="text-center">Ara Toplam</th>
-                            <td class="text-center">
-                                <input type="number" name='total_amount' id="total_amount"
-                                       placeholder='0.00' class="form-control" readonly/>
-                            </td>
+                                <th class="text-center">Ara Toplam</th>
+                                <td class="text-center">
+                                    <input type="number" name='total_amount' id="total_amount"
+                                           placeholder='0.00' class="form-control" readonly/>
+                                </td>
 
-                        </tr>
+                            </tr>
 
-                        <tr>
-                            <th style="width: 10%"></th>
-                            <th></th>
+                            <tr>
+                                <th style="width: 10%"></th>
+                                <th></th>
 
-                            <th class="text-center">Toplam</th>
-                            <td class="text-center">
-                                <input type="number" name='total' id="total"
-                                       placeholder='0.00' class="form-control" readonly/></td>
+                                <th class="text-center">Toplam</th>
+                                <td class="text-center">
+                                    <input type="number" name='total' id="total"
+                                           placeholder='0.00' class="form-control" readonly/></td>
 
-                        </tr>
-                        </tbody>
-                    </table>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- END Table -->
+
                 </div>
-                <!-- END Table -->
-
-            </div>
-
-
+                <div class="block-content bg-default text-right">
+                    <button class="btn btn-sm btn-success">Kaydet</button>
+                </div>
+            </form>
             <!-- END Invoice -->
         </div>
         <!-- -->

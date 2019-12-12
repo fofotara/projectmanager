@@ -20,4 +20,7 @@ class InvoiceController extends Controller
         $units = Unit::all();
         return view('invoices.create', compact('currencyCodes','taxs','units'));
     }
+    public function store(Request $request){
+        dd($request->all());
+    }
 }

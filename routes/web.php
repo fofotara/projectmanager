@@ -68,6 +68,7 @@ Route::group(['middleware' => ['auth']], function () {
             Route::get('/', 'InvoiceController@index');
             Route::get('/create', 'InvoiceController@create');
             Route::any('/saveInvoiceHeader', 'Apis\InvoiceController@saveInvoiceHeader');
+            Route::any('/saveInvoiceBody', 'InvoiceController@store');
 
 
             Route::get('getCurrentAccount', 'Apis\InvoiceController@getCurrentAccount');

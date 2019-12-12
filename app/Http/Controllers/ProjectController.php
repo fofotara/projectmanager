@@ -195,7 +195,7 @@ class ProjectController extends Controller
 
         foreach ($data as $key => $row){
 
-            Projectdetail::where('id', $row)
+           $detail = Projectdetail::where('id', $row)
                 ->update([
                     'sortorder' => $key,
                     'parent' => 0
@@ -211,6 +211,8 @@ class ProjectController extends Controller
             }
 
         }
+
+        return response()->json($data);
 
     }
     function subProject($children, $parent ){
