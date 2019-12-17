@@ -19,7 +19,8 @@
         "spatie/laravel-medialibrary": "^7.0.0",
         "spatie/laravel-permission": "^3.2",
         "spatie/laravel-searchable": "^1.4",
-        "unisharp/laravel-settings": "^2.0"
+        "unisharp/laravel-settings": "^2.0",
+        "yajra/laravel-datatables-oracle": "^9.7"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.2",

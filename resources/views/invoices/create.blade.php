@@ -298,8 +298,8 @@
 
                                 <th class="text-center">Toplam</th>
                                 <td class="text-center">
-                                    <input type="number" name='total' id="total"
-                                           placeholder='0.00' class="form-control" readonly/></td>
+
+                                </td>
 
                             </tr>
                             </tbody>
@@ -485,6 +485,8 @@
     <script src="{{ asset('js/plugins/bootstrap-notify/bootstrap-notify.min.js') }}"></script>
     <script src="{{ asset('js/invoices.js') }}"></script>
     <script>
+
+        $('#content').hide();
 
 
         function calc() {
@@ -787,6 +789,8 @@
                             } else {
                                 $('.currency-td').show();
                             }
+
+                            $('#content').show();
 
                         }
                     });

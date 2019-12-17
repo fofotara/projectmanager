@@ -69,9 +69,10 @@ Route::group(['middleware' => ['auth']], function () {
             Route::get('/create', 'InvoiceController@create');
             Route::any('/saveInvoiceHeader', 'Apis\InvoiceController@saveInvoiceHeader');
             Route::any('/saveInvoiceBody', 'InvoiceController@store');
-
-
             Route::get('getCurrentAccount', 'Apis\InvoiceController@getCurrentAccount');
+
+            //DATATABLES
+            Route::get('serverside','Apis\InvoiceController@dataTableList')->name('dataTableServerSide');
         });
         Route::group(['prefix' => 'stock'], function () {
             Route::get('/', 'StockController@index');

@@ -53,6 +53,8 @@ class InvoiceController extends Controller
         $company = Currentaccount::whereId($companyId)->first()->toArray();
 
         $invoice = Invoice::create([
+            'date' => $invoiceDate,
+            'number' => $number,
             'user_id' => \Auth::id(),
             'currentAccount_id' => $companyId,
             'currencyCode' => $currencyCode,
@@ -70,5 +72,23 @@ class InvoiceController extends Controller
         );
 
 
+    }
+
+    //DATATABLES
+    public function dataTableList()
+    {
+        $invoices =
+            \DB::table('invoices')
+                ->join('currentaccounts', 'invoices.currentaccount_id', '=', 'currentaccounts.id')
+                ->select('invoices.*', 'currentaccounts.company')
+                ->orderByDesc('date');
+
+        return \DataTables::of($invoices)
+            ->addIndexColumn()
+            ->editColumn('date', function ($invoices){
+                return  Carbon::createFromFormat('Y-m-d',$invoices->date)->format('d-m-Y');
+            })
+
+            ->make();
     }
 }
